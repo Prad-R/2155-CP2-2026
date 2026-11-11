@@ -2,6 +2,25 @@
 
 Dated log, newest first. Stable conventions live in `CLAUDE.md`.
 
+## 2026-11-11 (evening): S18 returned 0.7733877551 — exact match, 100/100 valid, rank 3
+
+- User uploaded S18 at 22:37:04Z (17:37 EST); leaderboard row "2.5 elbaf, 0.7733877551, rank 3". Expected 37896 = 0.7733877551: **exact match, all 100 grids valid.** First set built under the exact rules; previous best was S8 = 0.7540 (rank 25).
+- This also confirms the two thresholds no earlier submission had tested at margin 0: S18 contains grids at Wellness = 70 and Transportation = −187 exactly, and they are valid.
+- All 5 slots of Nov 11 are used (S11, S14, S13, S15, S18). Slots are per EST calendar day (S6–S10 at 23:45 EST Nov 10 and S11–S18 on Nov 11 EST all counted separately), so the next ones open at midnight EST.
+- User asked to pause Claude work to save usage. Nothing new was launched; the cluster jobs from the 17:45 entry run unattended (`cp2-optP` due ~22:00, `cp2-optR2` overnight, workbench `q501..q523` due ~20:15). Next step when resumed: `explore/wb.sh python -u src/best_chains.py --top 10 --verify`, then `src/make_exact_submission.py` on the best chain's `state.bin`.
+
+## 2026-11-11 17:45: S18 built (0.77339); "wall-thinning" penalty; big preemptable jobs; work pushed to branch `exact-rules`
+
+- **S18** = `submissions/S18_20261111_173529.npy` (sha f3f62dcc): chain `c7` (10M steps, T 1.2 -> 0.3, no penalty), 37896 = **0.7733877551**, all 100 grids valid under `rules.THRESH`. Built for the 5th slot of Nov 11; not yet reported as submitted.
+- Label thresholds vs safe thresholds: `c13_labelthr` (Tax 16, Business −1157, same seed and schedule as `c7`) ended at 37890 vs 37896. The safe thresholds cost nothing measurable; keep them.
+- **Why plain annealing stalls:** at the end every grid has ~33 neighbours at exactly distance 38, so almost any valid cell change pulls ~6 of them down to 37. The 10-NN score gives no reward for turning a 38 into a 39.
+- **Fix: pair penalty** added to the annealing objective (the reported score is still the true one): `--lam L --dmin D` subtracts `L·max(0, D − d)` for every pair (optional second tier `--lam2/--dmin2`, decay `--lam-end`). At equal steps it is worth +40–60 points: 2M-step readings 37906–37944 with penalty (best: `--lam 0.5 --dmin 40`, 27 pairs below 38) vs 37836–37880 without. `--lam 1.0 --dmin 39` is too strong early.
+- Builds: `bin/anneal3` (penalty table, ~6,500–11,000 steps/s depending on node), `bin/anneal4` (adds `--lam-end`); `src/anneal.py` picks the newest unless `ANNEAL_BIN` is set. `src/best_chains.py --verify` lists the best verified set of every chain.
+- Parallel tempering (`bin/pt`, 12 replicas, 30 min): 37902, no better per core than single chains. Dropped.
+- Tag collision: `ckpt/d1..d4` already existed from the surrogate era (DONE files), so new runs with those tags exit immediately. Check `ls ckpt` before choosing tags.
+- Jobs: `cp2-optP` 28733365 (96 chains x 100M steps, six penalty settings x 16 seeds, tags `p401..p496`, due ~22:00); `cp2-optR2` 28733722 (96 x 240M steps overnight, tags `r701..r796`, pending); workbench `q501..q523` (60M steps, due ~20:15); benchmark `d5..d12`, `dd1..dd4`, `pol1/2` on the second workbench. The no-penalty job `cp2-optN` was cancelled.
+- Git: commit `2ceee15` on branch `exact-rules`, pushed to origin (user request). `main` unchanged. The working tree stays on `exact-rules`. `bin/` is ignored.
+
 ## 2026-11-11 17:30: C++ annealer, first exact-validity results (0.771–0.773), what limits the score
 
 - **Python chains finished** (`g1..g16`, 1.5M steps): start temperature 1 -> 37782–37802 (0.7711–0.7715); start temperature 2–3 -> ~37838 (0.7722). Slow cooling from a hot start matters; the start set does not.

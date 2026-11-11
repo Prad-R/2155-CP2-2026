@@ -1,0 +1,96 @@
+python -u src/anneal.py --tag p401 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 401 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p402 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 402 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p403 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 403 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p404 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 404 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p405 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 405 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p406 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 406 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p407 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 407 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p408 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 408 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p409 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 409 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p410 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 410 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p411 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 411 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p412 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 412 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p413 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 413 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p414 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 414 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p415 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 415 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p416 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 416 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p417 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 417 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p418 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 418 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p419 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 419 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p420 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 420 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p421 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 421 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p422 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 422 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p423 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 423 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p424 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 424 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p425 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 425 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p426 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 426 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p427 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 427 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p428 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 428 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p429 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 429 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p430 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 430 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p431 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 431 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p432 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 432 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p433 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 1.0 --dmin 39 --seed 433 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p434 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 1.0 --dmin 39 --seed 434 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p435 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 1.0 --dmin 39 --seed 435 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p436 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 1.0 --dmin 39 --seed 436 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p437 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 1.0 --dmin 39 --seed 437 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p438 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 1.0 --dmin 39 --seed 438 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p439 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 1.0 --dmin 39 --seed 439 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p440 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 1.0 --dmin 39 --seed 440 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p441 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 1.0 --dmin 39 --seed 441 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p442 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 1.0 --dmin 39 --seed 442 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p443 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 1.0 --dmin 39 --seed 443 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p444 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 1.0 --dmin 39 --seed 444 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p445 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 1.0 --dmin 39 --seed 445 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p446 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 1.0 --dmin 39 --seed 446 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p447 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 1.0 --dmin 39 --seed 447 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p448 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 1.0 --dmin 39 --seed 448 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p449 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 449 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p450 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 450 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p451 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 451 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p452 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 452 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p453 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 453 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p454 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 454 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p455 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 455 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p456 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 456 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p457 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 457 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p458 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 458 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p459 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 459 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p460 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 460 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p461 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 461 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p462 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 462 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p463 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 463 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p464 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 464 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p465 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 465 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p466 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 466 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p467 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 467 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p468 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 468 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p469 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 469 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p470 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 470 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p471 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 471 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p472 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 472 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p473 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 473 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p474 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 474 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p475 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 475 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p476 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 476 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p477 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 477 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p478 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 478 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p479 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 479 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p480 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 480 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p481 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 40 --seed 481 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p482 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 40 --seed 482 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p483 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 40 --seed 483 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p484 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 40 --seed 484 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p485 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 40 --seed 485 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p486 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 40 --seed 486 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p487 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 40 --seed 487 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p488 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 40 --seed 488 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p489 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 40 --seed 489 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p490 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 40 --seed 490 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p491 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 40 --seed 491 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p492 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 40 --seed 492 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p493 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 40 --seed 493 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p494 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 40 --seed 494 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p495 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 40 --seed 495 --log-every 5000000 --ckpt-every 2000000
+python -u src/anneal.py --tag p496 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 40 --seed 496 --log-every 5000000 --ckpt-every 2000000

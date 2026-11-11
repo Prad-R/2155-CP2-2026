@@ -1,4 +1,12 @@
-python -u src/optimize_soft.py --tag d1 --init ckpt/z2/final.npz --blend z0 --pmin 0.95 --blend2 b0 --pmin2 0.90 --lam0 5 --lam1 300 --lam-hard 3000 --soft-frac 0.4 --nswap 200 --steps 45000 --seed 1
-python -u src/optimize_soft.py --tag d2 --init ckpt/z2/final.npz --blend z0 --pmin 0.95 --blend2 b0 --pmin2 0.80 --lam0 5 --lam1 300 --lam-hard 3000 --soft-frac 0.4 --nswap 200 --steps 45000 --seed 2
-python -u src/optimize_soft.py --tag d3 --init ckpt/b1/final.npz --blend z0 --pmin 0.95 --blend2 b0 --pmin2 0.95 --lam0 5 --lam1 300 --lam-hard 3000 --soft-frac 0.3 --nswap 200 --steps 45000 --seed 3
-python -u src/optimize_soft.py --tag d4 --init ckpt/z1/final.npz --blend z0 --pmin 0.90 --blend2 b0 --pmin2 0.90 --lam0 5 --lam1 300 --lam-hard 3000 --soft-frac 0.4 --nswap 200 --steps 45000 --seed 4
+python -u src/anneal.py --tag d1 --init submissions/S8_20261110_234101.npy --steps 10000000 --t0 1.2 --t1 0.3 --log-every 1000000 --focus 5 --lam 0.5 --dmin 39 --seed 301
+python -u src/anneal.py --tag d2 --init submissions/S8_20261110_234101.npy --steps 10000000 --t0 1.2 --t1 0.3 --log-every 1000000 --focus 5 --lam 1.0 --dmin 39 --seed 302
+python -u src/anneal.py --tag d3 --init submissions/S8_20261110_234101.npy --steps 10000000 --t0 1.2 --t1 0.3 --log-every 1000000 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 303
+python -u src/anneal.py --tag d4 --init submissions/S8_20261110_234101.npy --steps 10000000 --t0 1.2 --t1 0.3 --log-every 1000000 --focus 5 --lam 0.5 --dmin 39 --lam2 0.1 --dmin2 41 --seed 304
+python -u src/anneal.py --tag d5 --init submissions/S8_20261110_234101.npy --steps 10000000 --t0 1.2 --t1 0.3 --log-every 1000000 --focus 2 --lam 0.3 --dmin 39 --seed 305
+python -u src/anneal.py --tag d6 --init submissions/S8_20261110_234101.npy --steps 10000000 --t0 1.2 --t1 0.3 --log-every 1000000 --focus 5 --lam 0.3 --dmin 39 --nswap 400 --seed 306
+python -u src/anneal.py --tag d7 --init submissions/S8_20261110_234101.npy --steps 10000000 --t0 1.2 --t1 0.3 --log-every 1000000 --focus 5 --lam 0.3 --dmin 39 --seed 307
+python -u src/anneal.py --tag d8 --init submissions/S8_20261110_234101.npy --steps 10000000 --t0 1.2 --t1 0.3 --log-every 1000000 --focus 5 --lam 0.3 --dmin 39 --seed 308
+python -u src/anneal.py --tag d9 --init submissions/S8_20261110_234101.npy --steps 10000000 --t0 1.2 --t1 0.3 --log-every 1000000 --focus 5 --lam 0.2 --dmin 40 --seed 309
+python -u src/anneal.py --tag d10 --init submissions/S8_20261110_234101.npy --steps 10000000 --t0 1.2 --t1 0.3 --log-every 1000000 --focus 5 --lam 0.5 --dmin 40 --seed 310
+python -u src/anneal.py --tag d11 --init submissions/S8_20261110_234101.npy --steps 10000000 --t0 1.2 --t1 0.3 --log-every 1000000 --focus 5 --seed 311
+python -u src/anneal.py --tag d12 --init submissions/S8_20261110_234101.npy --steps 10000000 --t0 1.2 --t1 0.3 --log-every 1000000 --focus 5 --seed 312

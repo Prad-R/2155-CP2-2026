@@ -97,6 +97,7 @@ Rules for the Python side:
 - Wellness and Tax conflict (parks). No dataset grid has all four labels.
 - Scores take few distinct values, so the advisor rules are likely functions of integer features (counts, distances, adjacency).
 - Dataset grids predicted valid are tightly clustered (best 100-subset scores ~0.32), so a competitive score needs generated grids.
+- **Best so far: S18 = 0.7733877551 (Nov 11, rank 3, 100/100 valid, exact match with the predicted score).** Built with `src/anneal.py` under the exact rules. Leaders: 0.7752244898 (= 37986; 38000 means every 10-NN distance is 38). The pair penalty (`--lam`/`--dmin`) is the current lever; see `UPDATES.md`.
 - (Superseded by the exact rules: the surrogate-era findings below about margins, P(valid) and Wellness error describe models b0/z0 only.)
 - With validity ignored the optimiser reaches 0.7752 (leaders: 0.7749); with our margin (P(valid) >= 0.95) it plateaus at ~0.754 from any start. The gap is the cost of the validity margin, mostly Wellness (tightest advisor for 60–80% of grids) against Tax (parks pinned to 7–9, Residential to 9–11).
 - Submission evidence (S5–S10): at margin 0.95 about 1.2% of grids fail (model says 3.6%), at 0.90 about 4%. One failure costs ~0.0075. Best so far: S8 = 0.7540 (100/100 valid). The leaderboard keeps every submission as a separate row, so the best one stands. Certified all-valid sets: S2, S3, S5, S8.

@@ -1,2 +1,23 @@
-python -u src/optimize_set.py --tag aq1 --init ckpt/o1/final.npz --pmin 0.95 --quick
-python -u src/optimize_set.py --tag aq2 --init ckpt/o2/final.npz --pmin 0.85 --quick
+python -u src/anneal.py --tag q501 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 501 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q502 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 502 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q503 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 503 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q504 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 504 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q505 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 505 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q506 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 506 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q507 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 507 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q508 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --seed 508 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q509 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 2 --lam 0.3 --dmin 39 --seed 509 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q510 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 2 --lam 0.3 --dmin 39 --seed 510 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q511 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 2 --lam 0.3 --dmin 39 --seed 511 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q512 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 2 --lam 0.3 --dmin 39 --seed 512 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q513 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 513 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q514 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 514 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q515 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 515 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q516 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.5 --dmin 39 --seed 516 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q517 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 517 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q518 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 518 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q519 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 519 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q520 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.2 --dmin 40 --seed 520 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q521 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 521 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q522 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 522 --log-every 3000000 --ckpt-every 2000000
+python -u src/anneal.py --tag q523 --init submissions/S8_20261110_234101.npy --steps 60000000 --t0 1.2 --t1 0.35 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 523 --log-every 3000000 --ckpt-every 2000000

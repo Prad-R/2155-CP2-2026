@@ -1,6 +1,6 @@
 // Set annealer under exact advisor validity (C++ port of src/optimize_exact.py; rules as in src/rules.py).
 // Objective: integer 10-NN Hamming score of 100 grids; every grid must stay valid for all four advisors.
-// Build:  g++ -O3 -mavx2 -std=c++17 -o bin/anneal2 src/anneal.cpp   (bin/anneal is the first, slower build)
+// Build:  g++ -O3 -mavx2 -std=c++17 -o bin/anneal3 src/anneal.cpp   (bin/anneal, bin/anneal2 are earlier builds; src/anneal.py uses the newest)
 // Run through src/anneal.py (prepares init.bin, forwards signals, verifies the result with the Python rules).
 #include <algorithm>
 #include <cmath>
@@ -97,15 +97,17 @@ struct Cand { int p, q; uint8_t vp, vq; double gain, geff, key; };
 int main(int argc, char **argv) {
     std::string init, state, mode = "run";
     long long steps = 1000000, log_every = 100000, ckpt_every = 500000;
-    double t0 = 1.0, t1 = 0.05, focus = 15.0, lam = 0.0;
-    int nswap = 200, dmin = 38, max_tries = 128, cycles = 1;
+    double t0 = 1.0, t1 = 0.05, focus = 15.0, lam = 0.0, lam2 = 0.0, lam_end = -1.0, lam2_end = -1.0;
+    int nswap = 200, dmin = 38, dmin2 = 40, max_tries = 128, cycles = 1;
     uint64_t seed = 0;
     for (int i = 1; i < argc; i++) {
         std::string a = argv[i];
         auto nx = [&]() { return std::string(argv[++i]); };
         if (a == "--init") init = nx(); else if (a == "--state") state = nx(); else if (a == "--steps") steps = atoll(nx().c_str());
         else if (a == "--t0") t0 = atof(nx().c_str()); else if (a == "--t1") t1 = atof(nx().c_str()); else if (a == "--focus") focus = atof(nx().c_str());
-        else if (a == "--lam") lam = atof(nx().c_str()); else if (a == "--dmin") dmin = atoi(nx().c_str()); else if (a == "--nswap") nswap = atoi(nx().c_str());
+        else if (a == "--lam") lam = atof(nx().c_str()); else if (a == "--dmin") dmin = atoi(nx().c_str());
+        else if (a == "--lam2") lam2 = atof(nx().c_str()); else if (a == "--dmin2") dmin2 = atoi(nx().c_str());
+        else if (a == "--lam-end") lam_end = atof(nx().c_str()); else if (a == "--lam2-end") lam2_end = atof(nx().c_str()); else if (a == "--nswap") nswap = atoi(nx().c_str());
         else if (a == "--max-tries") max_tries = atoi(nx().c_str()); else if (a == "--seed") seed = strtoull(nx().c_str(), 0, 10); else if (a == "--cycles") cycles = atoi(nx().c_str());
         else if (a == "--log-every") log_every = atoll(nx().c_str()); else if (a == "--ckpt-every") ckpt_every = atoll(nx().c_str());
         else if (a == "--thr") { for (int k = 0; k < 4; k++) THR[k] = atoi(nx().c_str()); }
@@ -118,6 +120,10 @@ int main(int argc, char **argv) {
         while (fread(g, 1, L, f) == L) { int r[4] = {0, 0, 0, 0}; bool ok = raw4(g, r); printf("%d %d %d %d %d\n", ok ? 1 : 0, r[0], r[1], r[2], r[3]); }
         fclose(f); return 0;
     }
+    double W[NB]; bool usepen = lam > 0 || lam2 > 0;
+    if (lam_end < 0) lam_end = lam; if (lam2_end < 0) lam2_end = lam2;
+    auto setW = [&](double frac) { double l1 = lam + (lam_end - lam) * frac, l2 = lam2 + (lam2_end - lam2) * frac; for (int d = 0; d < NB; d++) W[d] = l1 * std::max(0, dmin - d) + l2 * std::max(0, dmin2 - d); };
+    setW(0.0);
     Rng rng; rng.seed(seed * 7919 + 12345);
     bool resumed = false;
     { FILE *f = fopen(state.c_str(), "rb");
@@ -144,13 +150,13 @@ int main(int argc, char **argv) {
         for (int j = 0; j < N; j++) { int *h = hist[j]; memset(h, 0, sizeof(int) * NB); for (int k = 0; k < N; k++) if (k != j && k != i) h[D[j][k]]++; }
         for (int j = 0; j < N; j++) { if (j == i) { S9[j] = 0; t10[j] = 0; continue; } const int *h = hist[j]; int need = K - 1, s = 0, d = 0; for (; d < NB; d++) { int c = h[d]; if (c > need) break; s += c * d; need -= c; } s += need * d; S9[j] = s; t10[j] = d; }
         long long base = 0; for (int j = 0; j < N; j++) base += S9[j];
-        double pen_cur = 0; if (lam > 0) for (int j = 0; j < N; j++) if (j != i && D[i][j] < dmin) pen_cur += dmin - D[i][j];
+        double pen_cur = 0; if (usepen) for (int j = 0; j < N; j++) if (j != i) pen_cur += W[D[i][j]];
         cands.clear();
         auto eval = [&](Cand &c) {
             int tot = 0; for (int j = 0; j < N; j++) { int x = nd[j], t = t10[j]; tot += x < t ? x : t; }
             int h[NB] = {0}; for (int j = 0; j < N; j++) h[nd[j]]++; h[nd[i]]--;
-            double pen = 0; if (lam > 0) for (int j = 0; j < N; j++) if (j != i && nd[j] < dmin) pen += dmin - nd[j];
-            c.gain = (double)(base + tot + top_sum(h, K) - cur); c.geff = c.gain - lam * (pen - pen_cur);
+            double pen = 0; if (usepen) for (int d = 0; d < NB; d++) pen += h[d] * W[d];
+            c.gain = (double)(base + tot + top_sum(h, K) - cur); c.geff = c.gain - (pen - pen_cur);
         };
         const uint8_t *gi = G[i];
         for (int p = 0; p < L; p++) {
@@ -196,6 +202,7 @@ int main(int argc, char **argv) {
     for (; step < steps && !g_stop; step++) {
         double frac = cycles > 1 ? (double)(step % cyc_len) / cyc_len : (double)step / steps;
         double T = t0 * std::pow(t1 / t0, frac);
+        if (usepen && (step & 1023) == 0) setW((double)step / steps);
         if (step % log_every == 0 && step > step0) {
             int p38 = 0, p37 = 0, mn = 99; for (int i = 0; i < N; i++) for (int j = i + 1; j < N; j++) { int d = D[i][j]; p38 += d < 38; p37 += d < 37; if (d < mn) mn = d; }
             if (full_score() != cur) { fprintf(stderr, "score bookkeeping mismatch\n"); return 6; }

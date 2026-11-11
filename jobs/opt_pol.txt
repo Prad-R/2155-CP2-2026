@@ -1,0 +1,2 @@
+python -u src/anneal.py --tag pol1 --init ckpt/c7/final.npz --steps 10000000 --t0 0.7 --t1 0.3 --focus 5 --lam 0.3 --dmin 39 --seed 601 --log-every 1000000
+python -u src/anneal.py --tag pol2 --init ckpt/c7/final.npz --steps 10000000 --t0 0.5 --t1 0.25 --focus 2 --lam 0.3 --dmin 39 --nswap -1 --seed 602 --log-every 1000000

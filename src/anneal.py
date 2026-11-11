@@ -4,7 +4,7 @@
 
 Resumable (ckpt/<tag>/state.bin), forwards SIGTERM/SIGUSR1 to the binary (which checkpoints and exits), and on
 completion writes ckpt/<tag>/final.npz after re-verifying every grid with the Python rules and the exact score.
-Extra arguments are passed to the binary unchanged (--t0 --t1 --nswap (-1 = all swaps) --focus --lam --dmin --cycles
+Extra arguments are passed to the binary unchanged (--t0 --t1 --nswap (-1 = all swaps) --focus --lam --dmin --lam2 --dmin2 --lam-end --lam2-end --cycles
 --seed --log-every --ckpt-every --max-tries).   `python src/anneal.py selftest` cross-checks the C++ rules.
 """
 import os, sys, signal, subprocess, struct
@@ -14,7 +14,7 @@ from common import ROOT
 from rules import raw_scores, valid, THRESH
 from divscore import int_score, DENOM
 
-BIN = os.environ.get("ANNEAL_BIN") or os.path.join(ROOT, "bin", "anneal2" if os.path.exists(os.path.join(ROOT, "bin", "anneal2")) else "anneal")
+BIN = os.environ.get("ANNEAL_BIN") or next(os.path.join(ROOT, "bin", b) for b in ("anneal3", "anneal2", "anneal") if os.path.exists(os.path.join(ROOT, "bin", b)))
 MAGIC = 0x414e4e45414c31
 
 
