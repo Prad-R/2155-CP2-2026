@@ -13,3 +13,8 @@ __pycache__/
 submissions/*
 !submissions/.gitkeep
 /*.npy
+
+# Project working dirs
+cache/
+ckpt/
+logs/
