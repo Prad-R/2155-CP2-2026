@@ -1,0 +1,2 @@
+python -u src/anneal.py --tag c11 --init ckpt/g15/final.npz --steps 12000000 --cycles 12 --t0 0.9 --t1 0.3 --seed 111 --log-every 500000
+python -u src/anneal.py --tag c12 --init ckpt/g15/final.npz --steps 12000000 --cycles 6 --t0 1.3 --t1 0.3 --seed 112 --log-every 500000

@@ -1,0 +1,155 @@
+<title>Zoning Design Atlas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* layout: a planner's light table. controls in one row on top, one large working surface below (map or gallery), legend always visible */
+:root{
+  --bg:#f3f4f1; --panel:#ffffff; --ink:#1c2321; --ink2:#55605b; --line:#d5d9d3; --accent:#0f5c4c;
+  --res:#f2d43d; --ind:#3b3e48; --com:#d9482b; --park:#1f9e5a; --off:#2f7fdc; --cellgap:#ffffff;
+  --c1:#2a78d6; --c2:#eb6834; --c3:#1baf7a; --c4:#eda100; --c5:#e87ba4; --c6:#008300; --c7:#6250d6; --c8:#e34948;
+  --sans:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#151917; --panel:#1e2421; --ink:#eceeea; --ink2:#a9b2ac; --line:#37403b; --accent:#6fd0b8; --ind:#5a5f6e; --cellgap:#1e2421;
+  --c1:#3987e5; --c2:#d95926; --c3:#199e70; --c4:#c98500; --c5:#d55181; --c6:#2a9a2a; --c7:#9085e9; --c8:#e66767; color-scheme:dark } }
+:root[data-theme="dark"]{ --bg:#151917; --panel:#1e2421; --ink:#eceeea; --ink2:#a9b2ac; --line:#37403b; --accent:#6fd0b8; --ind:#5a5f6e; --cellgap:#1e2421;
+  --c1:#3987e5; --c2:#d95926; --c3:#199e70; --c4:#c98500; --c5:#d55181; --c6:#2a9a2a; --c7:#9085e9; --c8:#e66767; color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.45}
+.wrap{max-width:1280px;margin:0 auto;padding-block:20px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:14px}
+h1{font-size:22px;font-weight:600;margin:0;text-wrap:balance}
+.sub{color:var(--ink2);max-width:75ch;margin:0}
+.row{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel)}
+.seg button{font:inherit;border:0;background:transparent;color:var(--ink2);padding:6px 12px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--panel);font-weight:500}
+.seg button:focus-visible,select:focus-visible,input:focus-visible,.badge:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+label.ctl{display:inline-flex;gap:6px;align-items:center;color:var(--ink2)}
+.lbl{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2)}
+select{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:5px 8px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.sw{display:inline-flex;align-items:center;gap:6px}
+.sw i{width:14px;height:14px;border-radius:3px;display:inline-block;border:1px solid var(--line)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px;min-width:0}
+#mapbox{position:relative}
+#map{width:100%;height:auto;display:block;touch-action:manipulation}
+#tip{position:absolute;pointer-events:none;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px;box-shadow:0 6px 24px rgba(0,0,0,.18);width:200px;z-index:5;font-size:12px}
+#tip canvas{width:180px;height:180px;display:block;margin-bottom:8px}
+#tip b{font-weight:600}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:1px 8px;font-variant-numeric:tabular-nums}
+.kv span:nth-child(odd){color:var(--ink2)}
+.strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.cl{border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--panel);display:flex;flex-direction:column;gap:6px;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.cl[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.cl .hd{display:flex;gap:8px;align-items:center}
+.num{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:22px;padding:0 6px;border-radius:11px;color:#fff;font-family:var(--mono);font-size:12px;font-weight:500}
+.cl .ex{display:flex;gap:6px}
+.cl canvas{width:56px;height:56px}
+.cnts{font-family:var(--mono);font-size:12px;display:flex;gap:8px;flex-wrap:wrap}
+.cnts span{display:inline-flex;gap:3px;align-items:center}
+.cnts i{width:9px;height:9px;border-radius:2px;display:inline-block}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:12px 10px}
+.tile{display:flex;flex-direction:column;gap:3px;font-family:var(--mono);font-size:11px;color:var(--ink2)}
+.tile canvas{width:100%;aspect-ratio:1;border-radius:3px}
+.tile.invalid canvas{outline:2px solid var(--c8);outline-offset:1px}
+.bar{height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent)}
+.tile .m{display:flex;justify-content:space-between;gap:4px}
+.more{align-self:center;font:inherit;padding:8px 16px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink);cursor:pointer}
+.note{color:var(--ink2);font-size:12.5px;max-width:85ch;margin:0}
+</style>
+<div class="wrap">
+  <div>
+    <h1>Zoning Design Atlas</h1>
+    <p class="sub">Every 7×7 layout we have submitted, with what the leaderboard told us about it. Hover or tap a dot to see the layout. Cluster numbers are shared between the map and the gallery.</p>
+  </div>
+  <div class="row">
+    <div class="seg" role="group" aria-label="View"><button id="tabmap" aria-pressed="true">Similarity map</button><button id="tabgal" aria-pressed="false">Gallery</button></div>
+    <span class="lbl">Group by</span>
+    <div class="seg" role="group" aria-label="Similarity"><button id="bc" aria-pressed="true">Character</button><button id="bl" aria-pressed="false">Cell layout</button></div>
+    <span class="lbl">Contribution</span>
+    <div class="seg" role="group" aria-label="Contribution"><button id="mo" aria-pressed="true">In its own set</button><button id="mp" aria-pressed="false">Among all shown</button></div>
+    <label class="ctl"><input type="checkbox" id="shownear" checked> near-certain sets</label>
+    <label class="ctl"><input type="checkbox" id="showbad" checked> invalid / unresolved</label>
+  </div>
+  <div class="legend" aria-label="District colours">
+    <span class="lbl">Districts</span>
+    <span class="sw"><i style="background:var(--res)"></i>0 Residential</span><span class="sw"><i style="background:var(--ind)"></i>1 Industrial</span><span class="sw"><i style="background:var(--com)"></i>2 Commercial</span><span class="sw"><i style="background:var(--park)"></i>3 Park</span><span class="sw"><i style="background:var(--off)"></i>4 Office</span>
+  </div>
+  <p class="note" id="basisnote"></p>
+  <div id="viewmap" class="panel">
+    <div class="legend" style="margin-bottom:6px"><span class="lbl">Dots</span><span>filled = confirmed valid</span><span>faded = from a set with 2–4 unknown failures</span><span>✕ = confirmed invalid</span><span>○ = unresolved probe grid</span><span>bigger = contributes more</span></div>
+    <div id="mapbox"><svg id="map" viewBox="0 0 1000 640" role="img" aria-label="Similarity map of layouts"></svg><div id="tip" hidden></div></div>
+  </div>
+  <div id="strip" class="strip"></div>
+  <div id="viewgal" hidden>
+    <div class="row" style="margin-bottom:12px">
+      <label class="ctl">Sort <select id="sort"><option value="contrib">Contribution, high first</option><option value="contribasc">Contribution, low first</option><option value="cluster">Cluster</option><option value="parks">Parks</option><option value="res">Residential</option><option value="pv">Model confidence, low first</option><option value="set">Set</option></select></label>
+      <label class="ctl">Status <select id="fst"><option value="">All shown</option><option value="confirmed">Confirmed valid</option><option value="near">Near-certain</option><option value="bad">Invalid / unresolved</option></select></label>
+      <label class="ctl">Set <select id="fset"><option value="">All</option></select></label>
+      <label class="ctl">Cluster <select id="fcl"><option value="">All</option></select></label>
+      <span id="count" class="lbl"></span>
+    </div>
+    <div id="gal" class="gal"></div>
+    <div style="display:flex;justify-content:center;margin-top:14px"><button id="more" class="more">Show more</button></div>
+  </div>
+</div>
+<script>
+const DATA=/*DATA*/[];
+const ADV=["Wellness","Tax","Transportation","Business"], DN=["Res","Ind","Com","Park","Off"], DV=["--res","--ind","--com","--park","--off"];
+const S={view:"map",basis:"c",meas:"o",near:true,bad:true,cluster:"",shown:240};
+try{const v=JSON.parse(localStorage.getItem("atlas")||"{}");for(const k of ["basis","meas"])if(v[k])S[k]=v[k]}catch(e){}
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+let COL=[],GAP;
+function readColors(){COL=DV.map(css);GAP=css("--cellgap")}
+function draw(cv,g,px){const n=px||cv.width;cv.width=cv.height=n;const c=cv.getContext("2d"),s=n/7,gp=Math.max(1,Math.round(n/90));c.fillStyle=GAP;c.fillRect(0,0,n,n);for(let i=0;i<49;i++){c.fillStyle=COL[+g[i]];c.fillRect((i%7)*s+gp/2,Math.floor(i/7)*s+gp/2,s-gp,s-gp)}}
+const contrib=d=>S.meas==="o"?d.co:(d.cp==null?d.co:d.cp);
+const clus=d=>S.basis==="c"?d.cc:d.cl, pre=()=>S.basis==="c"?"C":"L";
+const vis=d=>(d.st==="confirmed")||(d.st==="near"&&S.near)||((d.st==="invalid"||d.st==="unresolved")&&S.bad);
+const stName={confirmed:"confirmed valid",near:"near-certain",invalid:"confirmed invalid",unresolved:"unresolved (probe)"};
+function range(){const v=DATA.filter(vis).map(contrib);return [Math.min(...v),Math.max(...v)]}
+function tipHTML(d){return `<canvas width="360" height="360"></canvas><div class="kv"><span>Cluster</span><b>${pre()}${clus(d)}</b><span>Set</span><span>${d.sets.join(", ")}</span><span>Status</span><span>${stName[d.st]}${d.st==="near"?` (${d.nf} of 100 failed)`:""}</span><span>Contribution</span><span>${d.co} own · ${d.cp==null?"–":d.cp} all (of 490)</span><span>Districts</span><span>${d.cnt.map((c,i)=>DN[i]+" "+c).join(" · ")}</span><span>Model</span><span>${Math.round(d.pv*100)}% valid, tightest ${ADV[d.tight]} (${d.y[d.tight].toFixed(2)})</span></div>`}
+const tip=document.getElementById("tip"),svg=document.getElementById("map"),box=document.getElementById("mapbox");
+function showTip(d,ev){tip.innerHTML=tipHTML(d);draw(tip.querySelector("canvas"),d.g,360);tip.hidden=false;const r=box.getBoundingClientRect();let x=ev.clientX-r.left+14,y=ev.clientY-r.top+14;if(x+210>r.width)x=Math.max(0,ev.clientX-r.left-214);if(y+300>r.height)y=Math.max(0,r.height-300);tip.style.left=x+"px";tip.style.top=y+"px"}
+function renderMap(){const [lo,hi]=range(),W=1000,H=640,P=30,NS="http://www.w3.org/2000/svg";svg.innerHTML="";
+  const X=d=>P+(S.basis==="c"?d.xc:d.xl)*(W-2*P),Y=d=>P+(S.basis==="c"?d.yc:d.yl)*(H-2*P);const cen={};
+  const items=DATA.filter(vis).sort((a,b)=>(a.st==="confirmed")-(b.st==="confirmed"));
+  for(const d of items){const k=clus(d),x=X(d),y=Y(d),r=3+5.5*(contrib(d)-lo)/Math.max(1,hi-lo),col=`var(--c${k})`;let el;
+    if(d.st==="invalid"){el=document.createElementNS(NS,"path");el.setAttribute("d",`M${x-6},${y-6}L${x+6},${y+6}M${x+6},${y-6}L${x-6},${y+6}`);el.setAttribute("stroke","var(--ink)");el.setAttribute("stroke-width","2.5");el.setAttribute("fill","none")}
+    else{el=document.createElementNS(NS,"circle");el.setAttribute("cx",x);el.setAttribute("cy",y);el.setAttribute("r",r.toFixed(1));
+      if(d.st==="unresolved"){el.setAttribute("fill","var(--panel)");el.setAttribute("stroke","var(--ink)");el.setAttribute("stroke-width","2")}
+      else{el.setAttribute("fill",col);el.setAttribute("fill-opacity",d.st==="confirmed"?"0.95":"0.38");el.setAttribute("stroke","var(--panel)");el.setAttribute("stroke-width","1")}}
+    if(S.cluster&&+S.cluster!==k)el.setAttribute("opacity","0.12");
+    el.style.cursor="pointer";el.addEventListener("pointermove",e=>showTip(d,e));el.addEventListener("pointerdown",e=>showTip(d,e));el.addEventListener("pointerleave",e=>{if(e.pointerType==="mouse")tip.hidden=true});svg.appendChild(el);
+    if(d.st!=="invalid"&&d.st!=="unresolved"){(cen[k]=cen[k]||[0,0,0]);cen[k][0]+=x;cen[k][1]+=y;cen[k][2]++}}
+  for(const k in cen){const x=cen[k][0]/cen[k][2],y=cen[k][1]/cen[k][2],g=document.createElementNS(NS,"g");g.setAttribute("class","badge");g.setAttribute("tabindex","0");g.setAttribute("role","button");g.setAttribute("aria-label","Open cluster "+pre()+k+" in the gallery");g.style.cursor="pointer";
+    g.innerHTML=`<rect x="${x-19}" y="${y-13}" width="38" height="26" rx="13" fill="var(--panel)" stroke="var(--c${k})" stroke-width="3"/><text x="${x}" y="${y+5}" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" font-weight="600" fill="var(--ink)">${pre()}${k}</text>`;
+    const go=()=>{S.cluster=String(k);S.view="gal";S.shown=240;sync()};g.addEventListener("click",go);g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go()}});svg.appendChild(g)}}
+svg.addEventListener("pointerdown",e=>{if(e.target===svg)tip.hidden=true});
+function renderStrip(){const el=document.getElementById("strip");el.innerHTML="";const by={};for(const d of DATA.filter(vis)){if(d.st==="invalid"||d.st==="unresolved")continue;(by[clus(d)]=by[clus(d)]||[]).push(d)}
+  for(const k of Object.keys(by).sort((a,b)=>a-b)){const L=by[k],n=L.length,mean=f=>L.reduce((s,d)=>s+f(d),0)/n,mc=[0,1,2,3,4].map(i=>mean(d=>d.cnt[i]));
+    const mx=mean(d=>S.basis==="c"?d.xc:d.xl),my=mean(d=>S.basis==="c"?d.yc:d.yl);const typ=[...L].sort((a,b)=>{const f=d=>((S.basis==="c"?d.xc:d.xl)-mx)**2+((S.basis==="c"?d.yc:d.yl)-my)**2;return f(a)-f(b)}).slice(0,3);
+    const b=document.createElement("button");b.className="cl";b.setAttribute("aria-pressed",String(S.cluster===k));
+    b.innerHTML=`<div class="hd"><span class="num" style="background:var(--c${k})">${pre()}${k}</span><b>${n} layouts</b><span style="color:var(--ink2)">mean contribution ${mean(contrib).toFixed(0)}</span></div><div class="cnts">${mc.map((v,i)=>`<span><i style="background:var(${DV[i]})"></i>${DN[i]} ${v.toFixed(1)}</span>`).join("")}</div><div class="cnts" style="color:var(--ink2)">tightest: ${ADV.map((a,i)=>[a,L.filter(d=>d.tight===i).length]).sort((x,y)=>y[1]-x[1]).slice(0,2).map(x=>x[0]+" "+Math.round(100*x[1]/n)+"%").join(", ")}</div><div class="ex"></div>`;
+    for(const d of typ){const c=document.createElement("canvas");draw(c,d.g,112);b.querySelector(".ex").appendChild(c)}
+    b.addEventListener("click",()=>{S.cluster=S.cluster===k?"":k;S.shown=240;sync()});el.appendChild(b)}}
+function galList(){const fs=document.getElementById("fst").value,fset=document.getElementById("fset").value,so=document.getElementById("sort").value;
+  let L=DATA.filter(vis).filter(d=>(!fs||(fs==="bad"?(d.st==="invalid"||d.st==="unresolved"):d.st===fs))&&(!fset||d.sets.includes(fset))&&(!S.cluster||clus(d)===+S.cluster));
+  const key={contrib:d=>-contrib(d),contribasc:d=>contrib(d),cluster:d=>clus(d)*1000-contrib(d),parks:d=>-d.cnt[3],res:d=>-d.cnt[0],pv:d=>d.pv,set:d=>+d.set.slice(1)*1000-contrib(d)}[so];return L.sort((a,b)=>key(a)-key(b))}
+function renderGal(){const L=galList(),[lo,hi]=range(),el=document.getElementById("gal");el.innerHTML="";document.getElementById("count").textContent=L.length+" layouts";
+  for(const d of L.slice(0,S.shown)){const t=document.createElement("div");t.className="tile"+(d.st==="invalid"?" invalid":"");t.title=`${stName[d.st]} · ${d.sets.join(", ")} · ${d.cnt.map((c,i)=>DN[i]+" "+c).join(" ")} · model ${Math.round(d.pv*100)}% valid, tightest ${ADV[d.tight]}`;
+    const c=document.createElement("canvas");draw(c,d.g,168);t.appendChild(c);const v=contrib(d);
+    t.insertAdjacentHTML("beforeend",`<div class="bar"><i style="width:${(100*(v-lo)/Math.max(1,hi-lo)).toFixed(0)}%"></i></div><div class="m"><span>${v}</span><span>${pre()}${clus(d)} ${d.set}${d.st==="near"?"":d.st==="confirmed"?" ✓":d.st==="invalid"?" ✕":" ?"}</span></div>`);el.appendChild(t)}
+  document.getElementById("more").hidden=L.length<=S.shown}
+function sync(){readColors();try{localStorage.setItem("atlas",JSON.stringify({basis:S.basis,meas:S.meas}))}catch(e){}
+  const P=(id,v)=>document.getElementById(id).setAttribute("aria-pressed",String(v));P("tabmap",S.view==="map");P("tabgal",S.view==="gal");P("bc",S.basis==="c");P("bl",S.basis==="l");P("mo",S.meas==="o");P("mp",S.meas==="p");
+  document.getElementById("viewmap").hidden=S.view!=="map";document.getElementById("viewgal").hidden=S.view!=="gal";tip.hidden=true;
+  document.getElementById("basisnote").textContent=S.basis==="c"?"Character: layouts are close when they have similar district counts and similar neighbours (which districts touch which), whatever their orientation. Clusters C1–C"+Math.max(...DATA.map(d=>d.cc))+".":"Cell layout: layouts are close when they match cell by cell, the distance the score uses. Our sets were optimised to be far apart in this sense, so these groups (L1–L"+Math.max(...DATA.map(d=>d.cl))+") mostly reflect which run a layout came from.";
+  const fc=document.getElementById("fcl");const ks=[...new Set(DATA.map(clus))].sort((a,b)=>a-b);fc.innerHTML='<option value="">All</option>'+ks.map(k=>`<option value="${k}">${pre()}${k}</option>`).join("");fc.value=ks.includes(+S.cluster)?S.cluster:(S.cluster="");
+  renderStrip();if(S.view==="map")renderMap();else renderGal()}
+const on=(id,f,ev)=>document.getElementById(id).addEventListener(ev||"click",f);
+on("tabmap",()=>{S.view="map";sync()});on("tabgal",()=>{S.view="gal";sync()});on("bc",()=>{S.basis="c";S.cluster="";sync()});on("bl",()=>{S.basis="l";S.cluster="";sync()});on("mo",()=>{S.meas="o";sync()});on("mp",()=>{S.meas="p";sync()});
+on("shownear",e=>{S.near=e.target.checked;sync()},"change");on("showbad",e=>{S.bad=e.target.checked;sync()},"change");
+for(const id of ["sort","fst","fset"])on(id,()=>{S.shown=240;renderGal()},"change");on("fcl",e=>{S.cluster=e.target.value;S.shown=240;sync()},"change");on("more",()=>{S.shown+=240;renderGal()});
+document.getElementById("fset").insertAdjacentHTML("beforeend",[...new Set(DATA.flatMap(d=>d.sets))].sort((a,b)=>a.slice(1)-b.slice(1)).map(s=>`<option>${s}</option>`).join(""));
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change",sync);new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+sync();
+</script>

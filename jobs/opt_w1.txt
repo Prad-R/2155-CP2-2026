@@ -1,0 +1,4 @@
+python -u src/optimize_soft.py --tag w1 --init ckpt/u1/final.npz --steps 150000 --seed 41 --lam0 0.01 --lam1 100 --soft-frac 0.7
+python -u src/optimize_soft.py --tag w2 --init ckpt/u1/final.npz --steps 150000 --seed 42 --lam0 0.003 --lam1 100 --soft-frac 0.85
+python -u src/optimize_soft.py --tag w3 --init ckpt/u1/final.npz --steps 150000 --seed 43 --lam0 0.03 --lam1 100 --soft-frac 0.6 --t0 2
+python -u src/optimize_soft.py --tag w4 --init ckpt/u1/final.npz --steps 150000 --seed 44 --lam0 0.01 --lam1 30 --soft-frac 0.8 --t0 0.5

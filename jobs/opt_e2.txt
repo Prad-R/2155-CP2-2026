@@ -1,0 +1,6 @@
+python -u src/optimize_exact.py --tag f1 --init submissions/S8_20261110_234101.npy --steps 1000000 --bus-margin 25 --seed 11
+python -u src/optimize_exact.py --tag f2 --init submissions/S13_20261111_090940.npy --steps 1000000 --bus-margin 25 --seed 12
+python -u src/optimize_exact.py --tag f3 --init submissions/S8_20261110_234101.npy --steps 1000000 --bus-margin 15 --seed 13
+python -u src/optimize_exact.py --tag f4 --init submissions/S13_20261111_090940.npy --steps 1000000 --bus-margin 15 --seed 14
+python -u src/optimize_exact.py --tag f5 --init submissions/S8_20261110_234101.npy --steps 1000000 --bus-margin 25 --t0 2.0 --seed 15
+python -u src/optimize_exact.py --tag f6 --init ckpt/u1/final.npz --steps 1000000 --bus-margin 25 --seed 16

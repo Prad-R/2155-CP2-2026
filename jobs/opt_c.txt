@@ -1,0 +1,10 @@
+python -u src/anneal.py --tag c1 --init submissions/S8_20261110_234101.npy --steps 30000000 --t0 1.5 --t1 0.2 --seed 101 --log-every 1000000
+python -u src/anneal.py --tag c2 --init submissions/S8_20261110_234101.npy --steps 30000000 --t0 1.2 --t1 0.3 --seed 102 --log-every 1000000
+python -u src/anneal.py --tag c3 --init submissions/S8_20261110_234101.npy --steps 30000000 --t0 2.0 --t1 0.1 --seed 103 --log-every 1000000
+python -u src/anneal.py --tag c4 --init submissions/S8_20261110_234101.npy --steps 30000000 --t0 1.0 --t1 0.25 --nswap -1 --seed 104 --log-every 1000000
+python -u src/anneal.py --tag c5 --init submissions/S8_20261110_234101.npy --steps 30000000 --t0 1.2 --t1 0.3 --lam 0.5 --seed 105 --log-every 1000000
+python -u src/anneal.py --tag c6 --init submissions/S8_20261110_234101.npy --steps 30000000 --t0 1.2 --t1 0.3 --focus 5 --seed 106 --log-every 1000000
+python -u src/anneal.py --tag c7 --init submissions/S8_20261110_234101.npy --steps 10000000 --t0 1.2 --t1 0.3 --seed 107 --log-every 500000
+python -u src/anneal.py --tag c8 --init submissions/S8_20261110_234101.npy --steps 10000000 --t0 1.5 --t1 0.2 --lam 0.5 --seed 108 --log-every 500000
+python -u src/anneal.py --tag c9 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.5 --t1 0.25 --seed 109 --log-every 2000000
+python -u src/anneal.py --tag c10 --init submissions/S8_20261110_234101.npy --steps 100000000 --t0 1.2 --t1 0.3 --seed 110 --log-every 2000000

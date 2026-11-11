@@ -2,6 +2,28 @@
 
 Dated log, newest first. Stable conventions live in `CLAUDE.md`.
 
+## 2026-11-11 17:30: C++ annealer, first exact-validity results (0.771–0.773), what limits the score
+
+- **Python chains finished** (`g1..g16`, 1.5M steps): start temperature 1 -> 37782–37802 (0.7711–0.7715); start temperature 2–3 -> ~37838 (0.7722). Slow cooling from a hot start matters; the start set does not.
+- **Unconstrained reference** (`g21_unc`, same optimiser, validity off): 37998 (0.77547). So exact validity costs ~0.003 at equal effort, and the leaders' 37986 is just under "every 10-NN distance = 38" (38000).
+- **Why the constrained sets stop short** (`explore/tight.py`, `tight2.py` on `g15`): R and P counts are pinned by the true rules too (R 8–11, P 7–9; Tax needs R and few P, Business caps R at the number of jobs, Wellness needs parks). Tax is the tightest advisor (28 grids within 2 of the threshold). 1,622 of 4,950 pairs sit at exactly 38 and 96 pairs are below (93 at 37): score = 38000 − 2·(pairs at 37) − 4·(pairs at 36). The close pairs are spread over all grids (one connected cluster of 83 grids), so this is a global packing problem, not a few bad grids.
+- **`src/anneal.cpp` -> `bin/anneal2`** (wrapper `src/anneal.py`): C++ port of the same annealer; rules cross-checked against `rules.py` on 21,700 grids (`python src/anneal.py selftest`); the wrapper re-verifies every final set in Python. ~6,500 steps/s per core (Python: ~400). Options: `--t0 --t1 --steps --nswap (-1 = all swaps) --focus --lam --dmin --cycles`. Resumable (`ckpt/<tag>/state.bin`).
+- **`src/pt.cpp` -> `bin/pt`**: parallel tempering (threads). 12 replicas, T 0.5–1.3: no better than one annealing chain at equal steps per replica so far.
+- **Ops lesson:** `srun --overlap -c N` steps inside one job are pinned to the *same first N cores* (chains ran at 50–85%). All chains now run in a single `-c 24` step (`explore/run_multi.sh jobs/opt_all.txt logs/optA`); `explore/wb.sh` passes `--cpu-bind=none`.
+- Running: `c1..c25` in the workbench (10M–100M steps, schedules and option variants), `cp2-optN` (job 28731489, 96 chains x 150M steps, pending). First C++ readings: 37896 (0.7734) at 6M steps of a 10M-step run.
+
+## 2026-11-11 16:10: all four advisor rules exact; every submission reproduced; exact-validity optimiser running
+
+- **Business solved** (`explore/bus4.py` ... `bus_exact.py`): a labour-market rule. Exact on all 5,000 labels (746/746 levels single-valued, monotone):
+  `−24·nI − 37·nC − 32·nP − 22·nO − 8·max(0, 10·nR − 3·nI − 3·nC − 4·nO) + 10·#(I–I adjacent) − 2·#(C not in column 0) − 5·#(C not in bottom row)`
+  (each R supplies 10 workers; I and C employ 3, O employs 4; 8 per unemployed worker). Found by: one feature `min(3nR, nI+nC+nO)` cut the residual 73 -> 17 levels; inside each regime the score is linear; ACE on the two-regime family gave R2 = 1.000000 with coefficients that are integers after x10.
+- **Transportation confirmed on all labels incl. tails** (218/218 levels). All four rules are in `src/rules.py` (`raw_scores`, `valid`).
+- **Thresholds** (first raw score whose label >= 0.75): Wellness 70, Tax 16, Transportation −187, Business −1157. Tax (11 grids) and Business (~7% of grids) sometimes show two adjacent labels for one raw value, not tied to the dataset file; most likely float arithmetic in the organisers' code. Business −1157 straddles 0.75 (labels 0.74975 and 0.75125). `rules.THRESH` is therefore one step inside for those two: **[70, 17, −187, −1155]**; `rules.THRESH_LABEL` = [70, 16, −187, −1157].
+- **Every scored submission (S1–S15, 13 files) is reproduced to the exact integer** by the four rules with `THRESH_LABEL` (`explore/verify3.py`): failures were Tax in S6, S7, S9, S10, S13, S14 (margins −1 to −8), Tax + Wellness in S4, S11, S15, Transportation in S1. Business never failed. This also fixes which grids failed in each set.
+- **`src/optimize_exact.py`**: the set annealer with exact validity (no model in the loop, ~550 steps/s on one core; start sets are repaired first). Test from S8: 0.7540 -> 0.7576 in 3,000 steps. Production: 20 chains `g1..g20` inside the workbench job (`jobs/opt_g.txt`, logs `logs/optG-<n>.out`), 1.5M–4M steps, starts S8 / S13 / S12 / u1. After 10,000 steps: 0.7667 (S8 start), 0.7687 (S13 start), 0.7638 (u1 start), all 100 grids exactly valid.
+- The unconstrained optimum `u1` is far from valid under the true rules (97 of 100 grids invalid), so the leaders' 0.7752 is a constrained optimum, not "validity for free".
+- `src/bus_model.py` (un-augmented CNN for Business, 4 levels held-out error) was an interim guard and is no longer used.
+
 ## 2026-11-11 (early afternoon): advisors are NOT rotation/flip symmetric; exact rules for Tax, Wellness, Transportation
 
 Second Claude session (scripts in `explore/`, nothing submitted, no existing file changed except this log and `CLAUDE.md`).

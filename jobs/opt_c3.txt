@@ -1,0 +1,1 @@
+python -u src/anneal.py --tag c13_labelthr --init submissions/S8_20261110_234101.npy --steps 10000000 --t0 1.2 --t1 0.3 --seed 107 --log-every 500000 --thr 70 16 -187 -1157

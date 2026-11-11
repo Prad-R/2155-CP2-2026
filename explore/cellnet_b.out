@@ -1,0 +1,8 @@
+===== Tax: central n=4483 sd(level)=42.3
+  R1         dim  17  held-out resid sd   6.32 levels (R2 0.9777)   train   6.13  [10s]
+  R2         dim  32  held-out resid sd   6.48 levels (R2 0.9765)   train   5.98  [8s]
+  R3+near    dim  57  held-out resid sd   6.63 levels (R2 0.9754)   train   5.66  [8s]
+===== Business: central n=4485 sd(level)=120.5
+  R1         dim  17  held-out resid sd   7.50 levels (R2 0.9961)   train   7.18  [8s]
+  R2         dim  32  held-out resid sd   7.71 levels (R2 0.9959)   train   7.29  [8s]
+  R3+near    dim  57  held-out resid sd   7.77 levels (R2 0.9958)   train   7.28  [8s]

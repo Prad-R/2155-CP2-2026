@@ -1,0 +1,44 @@
+
+===== Wellness (144s)
+  counts                                                         R2(z) 0.5563  lam 10
+  counts onehot (additive, any shape)                            R2(z) 0.5794  lam 100
+  D1 (type, 4-nbr multiset) [600]                                R2(z) 0.7842  lam 100
+  D2 (type, 8-nbr counts) [3239]                                 R2(z) 0.6521  lam 1000
+  D3 (type, nearest man dist to each type cap4) [1269]           R2(z) 0.7278  lam 1000
+  D3c (type, nearest cheb dist cap3) [405]                       R2(z) 0.6672  lam 100
+  counts + D1                                                    R2(z) 0.7971  lam 1000
+  counts + D1 + D3                                               R2(z) 0.8441  lam 1000
+  counts + D2 + D3                                               R2(z) 0.7620  lam 1000
+
+===== Tax (123s)
+  counts                                                         R2(z) 0.8507  lam 1
+  counts onehot (additive, any shape)                            R2(z) 0.8751  lam 10
+  D1 (type, 4-nbr multiset) [600]                                R2(z) 0.9589  lam 100
+  D2 (type, 8-nbr counts) [3231]                                 R2(z) 0.8903  lam 1000
+  D3 (type, nearest man dist to each type cap4) [1264]           R2(z) 0.8909  lam 100
+  D3c (type, nearest cheb dist cap3) [405]                       R2(z) 0.9115  lam 1
+  counts + D1                                                    R2(z) 0.9634  lam 100
+  counts + D1 + D3                                               R2(z) 0.9500  lam 1000
+  counts + D2 + D3                                               R2(z) 0.9175  lam 1000
+
+===== Transportation (134s)
+  counts                                                         R2(z) 0.1463  lam 100
+  counts onehot (additive, any shape)                            R2(z) 0.2637  lam 1000
+  D1 (type, 4-nbr multiset) [600]                                R2(z) 0.7436  lam 100
+  D2 (type, 8-nbr counts) [3230]                                 R2(z) 0.6040  lam 1000
+  D3 (type, nearest man dist to each type cap4) [1266]           R2(z) 0.8662  lam 100
+  D3c (type, nearest cheb dist cap3) [404]                       R2(z) 0.7685  lam 100
+  counts + D1                                                    R2(z) 0.7944  lam 100
+  counts + D1 + D3                                               R2(z) 0.9121  lam 1000
+  counts + D2 + D3                                               R2(z) 0.8257  lam 1000
+
+===== Business (160s)
+  counts                                                         R2(z) 0.5280  lam 10
+  counts onehot (additive, any shape)                            R2(z) 0.8466  lam 100
+  D1 (type, 4-nbr multiset) [600]                                R2(z) 0.6249  lam 1000
+  D2 (type, 8-nbr counts) [3257]                                 R2(z) 0.5264  lam 1000
+  D3 (type, nearest man dist to each type cap4) [1269]           R2(z) 0.5524  lam 1000
+  D3c (type, nearest cheb dist cap3) [405]                       R2(z) 0.6026  lam 100
+  counts + D1                                                    R2(z) 0.8998  lam 100
+  counts + D1 + D3                                               R2(z) 0.8646  lam 1000
+  counts + D2 + D3                                               R2(z) 0.8037  lam 1000

@@ -1,0 +1,18 @@
+===== Wellness: central n=4526  sd(level)=59.0
+  rf3        held-out resid sd  22.17 levels (R2 0.8588)   train resid sd  17.51  [12s]
+  rf5        held-out resid sd  19.40 levels (R2 0.8918)   train resid sd   2.42  [11s]
+  rf7        held-out resid sd  19.57 levels (R2 0.8900)   train resid sd   0.40  [11s]
+  rf9        held-out resid sd  20.74 levels (R2 0.8764)   train resid sd   0.09  [12s]
+  rf13       held-out resid sd  24.16 levels (R2 0.8322)   train resid sd   0.01  [14s]
+===== Transportation: central n=4445  sd(level)=25.9
+  rf3        held-out resid sd  12.07 levels (R2 0.7825)   train resid sd   8.65  [9s]
+  rf5        held-out resid sd   8.93 levels (R2 0.8809)   train resid sd   0.41  [10s]
+  rf7        held-out resid sd   8.48 levels (R2 0.8925)   train resid sd   0.05  [11s]
+  rf9        held-out resid sd   9.51 levels (R2 0.8649)   train resid sd   0.01  [11s]
+  rf13       held-out resid sd  13.35 levels (R2 0.7338)   train resid sd   0.01  [13s]
+===== Business: central n=4485  sd(level)=120.5
+  rf3        held-out resid sd   4.52 levels (R2 0.9986)   train resid sd   4.27  [10s]
+  rf5        held-out resid sd   4.43 levels (R2 0.9986)   train resid sd   3.39  [10s]
+  rf7        held-out resid sd  10.60 levels (R2 0.9923)   train resid sd   2.09  [11s]
+  rf9        held-out resid sd  17.48 levels (R2 0.9790)   train resid sd   0.89  [12s]
+  rf13       held-out resid sd   9.64 levels (R2 0.9936)   train resid sd   1.55  [14s]

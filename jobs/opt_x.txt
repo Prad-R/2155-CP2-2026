@@ -1,0 +1,4 @@
+python -u src/optimize_set.py --tag x1 --init pool --pool cache/cands_s0.npz --pmin 0.95 --steps 250000 --seed 21 --p-swap 0.03 --cycles 4 --t0 4 --t1 0.1
+python -u src/optimize_set.py --tag x2 --init pool --pool cache/cands_s0.npz --pmin 0.95 --steps 250000 --seed 22 --p-swap 0.10 --cycles 4 --t0 4 --t1 0.1
+python -u src/optimize_set.py --tag x3 --init pool --pool cache/cands_s0.npz --pmin 0.95 --steps 250000 --seed 23 --p-swap 0.03 --cycles 8 --t0 6 --t1 0.1
+python -u src/optimize_set.py --tag x4 --init pool --pool cache/cands_s0.npz --pmin 0.95 --steps 250000 --seed 24 --p-swap 0 --cycles 1 --t0 4 --t1 0.1

@@ -1,0 +1,4 @@
+python -u src/optimize_set.py --tag a1 --init ckpt/o1/final.npz --pmin 0.95 --steps 60000 --seed 1
+python -u src/optimize_set.py --tag a2 --init ckpt/o2/final.npz --pmin 0.85 --steps 60000 --seed 2
+python -u src/optimize_set.py --tag a3 --init ckpt/o1/final.npz --pmin 0.90 --steps 60000 --seed 3
+python -u src/optimize_set.py --tag a4 --init ckpt/o1/final.npz --pmin 0.95 --steps 60000 --seed 4 --t0 6 --t1 0.3

@@ -1,0 +1,136 @@
+{
+ "char_prop": {
+  "picked": 0.7081836734693877,
+  "picked_int": 34701,
+  "after_swaps": 0.7526326530612245,
+  "after_swaps_int": 36879,
+  "sources": {
+   "S5": 86,
+   "S8": 14
+  },
+  "char_clusters": {
+   "1": 56,
+   "2": 27,
+   "3": 17
+  }
+ },
+ "char_equal": {
+  "picked": 0.7080612244897959,
+  "picked_int": 34695,
+  "after_swaps": 0.7525102040816326,
+  "after_swaps_int": 36873,
+  "sources": {
+   "S5": 84,
+   "S8": 16
+  },
+  "char_clusters": {
+   "1": 57,
+   "2": 26,
+   "3": 17
+  }
+ },
+ "layout_prop": {
+  "picked": 0.7092857142857143,
+  "picked_int": 34755,
+  "after_swaps": 0.7539183673469387,
+  "after_swaps_int": 36942,
+  "sources": {
+   "S5": 38,
+   "S8": 62
+  },
+  "char_clusters": {
+   "1": 59,
+   "2": 26,
+   "3": 15
+  }
+ },
+ "layout_equal": {
+  "picked": 0.693204081632653,
+  "picked_int": 33967,
+  "after_swaps": 0.7539183673469387,
+  "after_swaps_int": 36942,
+  "sources": {
+   "S5": 38,
+   "S8": 62
+  },
+  "char_clusters": {
+   "1": 59,
+   "2": 26,
+   "3": 15
+  }
+ },
+ "global_far": {
+  "picked": 0.7186530612244898,
+  "picked_int": 35214,
+  "after_swaps": 0.753,
+  "after_swaps_int": 36897,
+  "sources": {
+   "S5": 95,
+   "S8": 5
+  },
+  "char_clusters": {
+   "1": 56,
+   "2": 26,
+   "3": 18
+  }
+ },
+ "set_S2": {
+  "picked": 0.6329183673469387,
+  "picked_int": 31013,
+  "after_swaps": 0.7539183673469387,
+  "after_swaps_int": 36942,
+  "sources": {
+   "S5": 38,
+   "S8": 62
+  },
+  "char_clusters": {
+   "1": 59,
+   "2": 26,
+   "3": 15
+  }
+ },
+ "set_S3": {
+  "picked": 0.6811224489795918,
+  "picked_int": 33375,
+  "after_swaps": 0.7527959183673469,
+  "after_swaps_int": 36887,
+  "sources": {
+   "S5": 68,
+   "S8": 32
+  },
+  "char_clusters": {
+   "1": 58,
+   "2": 26,
+   "3": 16
+  }
+ },
+ "set_S5": {
+  "picked": 0.7531224489795918,
+  "picked_int": 36903,
+  "after_swaps": 0.7531224489795918,
+  "after_swaps_int": 36903,
+  "sources": {
+   "S5": 100
+  },
+  "char_clusters": {
+   "1": 56,
+   "2": 26,
+   "3": 18
+  }
+ },
+ "set_S8": {
+  "picked": 0.754,
+  "picked_int": 36946,
+  "after_swaps": 0.754,
+  "after_swaps_int": 36946,
+  "sources": {
+   "S5": 32,
+   "S8": 68
+  },
+  "char_clusters": {
+   "1": 59,
+   "2": 26,
+   "3": 15
+  }
+ }
+}

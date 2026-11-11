@@ -1,0 +1,4 @@
+python -u src/optimize_soft.py --tag z1 --blend z0 --init ckpt/b1/final.npz --steps 100000 --seed 61 --soft-frac 0 --nswap 200 --t0 2 --pmin 0.95
+python -u src/optimize_soft.py --tag z2 --blend z0 --init ckpt/b1/final.npz --steps 100000 --seed 62 --soft-frac 0 --nswap 200 --t0 2 --pmin 0.98
+python -u src/optimize_soft.py --tag z3 --blend z0 --init ckpt/b1/final.npz --steps 100000 --seed 63 --lam0 5 --lam1 100 --soft-frac 0.6 --nswap 200 --t0 2 --pmin 0.95
+python -u src/optimize_soft.py --tag z4 --blend z0 --init ckpt/u1/final.npz --steps 100000 --seed 64 --lam0 0.02 --lam1 100 --soft-frac 0.7 --nswap 200 --t0 1 --pmin 0.95

@@ -1,0 +1,16 @@
+===== Wellness: central n=4526 sd(level)=59.0
+  R1         dim  17  held-out resid sd  25.35 levels (R2 0.8154)   train  24.27  [10s]
+  R2         dim  32  held-out resid sd  22.76 levels (R2 0.8511)   train  18.47  [8s]
+  R3         dim  52  held-out resid sd  22.90 levels (R2 0.8494)   train  15.65  [8s]
+  R1+near    dim  22  held-out resid sd 110.91 levels (R2 -2.5339)   train  16.34  [8s]
+  R2+near    dim  37  held-out resid sd 138.75 levels (R2 -4.5315)   train  15.54  [8s]
+  R3+near    dim  57  held-out resid sd 156.65 levels (R2 -6.0499)   train  14.42  [8s]
+  R6+near    dim 147  held-out resid sd 152.09 levels (R2 -5.6458)   train   7.13  [8s]
+===== Transportation: central n=4445 sd(level)=25.9
+  R1         dim  17  held-out resid sd  10.54 levels (R2 0.8339)   train   9.88  [8s]
+  R2         dim  32  held-out resid sd   6.42 levels (R2 0.9384)   train   5.13  [8s]
+  R3         dim  52  held-out resid sd   5.91 levels (R2 0.9478)   train   3.93  [8s]
+  R1+near    dim  22  held-out resid sd   2.78 levels (R2 0.9884)   train   1.62  [8s]
+  R2+near    dim  37  held-out resid sd   4.78 levels (R2 0.9659)   train   1.77  [8s]
+  R3+near    dim  57  held-out resid sd   5.26 levels (R2 0.9587)   train   1.79  [8s]
+  R6+near    dim 147  held-out resid sd   3.98 levels (R2 0.9763)   train   1.62  [8s]

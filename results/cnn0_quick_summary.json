@@ -1,0 +1,98 @@
+{
+ "Wellness/aug0": {
+  "r2": -4.258871555328369,
+  "rmse": 0.6729068160057068,
+  "n_pred>=0.75": 0,
+  "prec@0.75": null,
+  "n_pred>=0.8": 0,
+  "prec@0.8": null,
+  "n_pred>=0.85": 0,
+  "prec@0.85": null,
+  "n_pred>=0.9": 0,
+  "prec@0.9": null
+ },
+ "Wellness/aug1": {
+  "r2": -3.4295411109924316,
+  "rmse": 0.6175726056098938,
+  "n_pred>=0.75": 0,
+  "prec@0.75": null,
+  "n_pred>=0.8": 0,
+  "prec@0.8": null,
+  "n_pred>=0.85": 0,
+  "prec@0.85": null,
+  "n_pred>=0.9": 0,
+  "prec@0.9": null
+ },
+ "Tax/aug0": {
+  "r2": -3.532979965209961,
+  "rmse": 0.6019959449768066,
+  "n_pred>=0.75": 0,
+  "prec@0.75": null,
+  "n_pred>=0.8": 0,
+  "prec@0.8": null,
+  "n_pred>=0.85": 0,
+  "prec@0.85": null,
+  "n_pred>=0.9": 0,
+  "prec@0.9": null
+ },
+ "Tax/aug1": {
+  "r2": -3.692780017852783,
+  "rmse": 0.6125150322914124,
+  "n_pred>=0.75": 0,
+  "prec@0.75": null,
+  "n_pred>=0.8": 0,
+  "prec@0.8": null,
+  "n_pred>=0.85": 0,
+  "prec@0.85": null,
+  "n_pred>=0.9": 0,
+  "prec@0.9": null
+ },
+ "Transportation/aug0": {
+  "r2": -3.352999687194824,
+  "rmse": 0.6033589243888855,
+  "n_pred>=0.75": 0,
+  "prec@0.75": null,
+  "n_pred>=0.8": 0,
+  "prec@0.8": null,
+  "n_pred>=0.85": 0,
+  "prec@0.85": null,
+  "n_pred>=0.9": 0,
+  "prec@0.9": null
+ },
+ "Transportation/aug1": {
+  "r2": -3.447348117828369,
+  "rmse": 0.6098626255989075,
+  "n_pred>=0.75": 0,
+  "prec@0.75": null,
+  "n_pred>=0.8": 0,
+  "prec@0.8": null,
+  "n_pred>=0.85": 0,
+  "prec@0.85": null,
+  "n_pred>=0.9": 0,
+  "prec@0.9": null
+ },
+ "Business/aug0": {
+  "r2": -3.5692014694213867,
+  "rmse": 0.5972871780395508,
+  "n_pred>=0.75": 0,
+  "prec@0.75": null,
+  "n_pred>=0.8": 0,
+  "prec@0.8": null,
+  "n_pred>=0.85": 0,
+  "prec@0.85": null,
+  "n_pred>=0.9": 0,
+  "prec@0.9": null
+ },
+ "Business/aug1": {
+  "r2": -3.560847282409668,
+  "rmse": 0.5967409014701843,
+  "n_pred>=0.75": 0,
+  "prec@0.75": null,
+  "n_pred>=0.8": 0,
+  "prec@0.8": null,
+  "n_pred>=0.85": 0,
+  "prec@0.85": null,
+  "n_pred>=0.9": 0,
+  "prec@0.9": null
+ }
+}

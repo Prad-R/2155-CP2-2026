@@ -1,0 +1,16 @@
+===== Wellness
+  rf1 (counts only)    held-out R2(z) 0.5910  (folds [0.5638 0.6182])  train 0.6267  [16s]
+  rf3                  held-out R2(z) 0.8487  (folds [0.8588 0.8387])  train 0.8608  [8s]
+  rf5                  held-out R2(z) 0.8915  (folds [0.8963 0.8868])  train 0.9239  [8s]
+  rf7                  held-out R2(z) 0.9006  (folds [0.9028 0.8983])  train 0.9431  [8s]
+  rf9                  held-out R2(z) 0.8994  (folds [0.9026 0.8961])  train 0.9602  [9s]
+  rf13                 held-out R2(z) 0.8997  (folds [0.8976 0.9019])  train 0.9617  [10s]
+===== Tax
+  rf1 (counts only)    held-out R2(z) 0.9095  (folds [0.9139 0.905 ])  train 0.9082  [6s]
+  rf3                  held-out R2(z) 0.9834  (folds [0.9833 0.9834])  train 0.9828  [7s]
+  rf5                  held-out R2(z) 0.9831  (folds [0.9824 0.9837])  train 0.9839  [8s]
+  rf7                  held-out R2(z) 0.9840  (folds [0.9832 0.9848])  train 0.9852  [9s]
+  rf9                  held-out R2(z) 0.9850  (folds [0.9844 0.9855])  train 0.9870  [10s]
+[2026-11-11T11:56:29.783] error: *** STEP 28701615.0 ON node3511 CANCELLED AT 2026-11-11T11:56:29 DUE TO PREEMPTION ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+srun: error: node3511: task 0: Terminated

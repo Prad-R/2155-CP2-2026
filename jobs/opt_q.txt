@@ -1,0 +1,2 @@
+python -u src/optimize_set.py --tag aq1 --init ckpt/o1/final.npz --pmin 0.95 --quick
+python -u src/optimize_set.py --tag aq2 --init ckpt/o2/final.npz --pmin 0.85 --quick
