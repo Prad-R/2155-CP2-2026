@@ -1,0 +1,96 @@
+python -u src/anneal.py --tag v001 --init ckpt/r761/state.bin --steps 300000000 --t0 0.60 --t1 0.60 --focus 2 --lam 0.5 --dmin 39 --seed 1001 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v002 --init ckpt/r752/state.bin --steps 300000000 --t0 0.60 --t1 0.60 --focus 2 --lam 0.5 --dmin 39 --seed 1002 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v003 --init ckpt/r761/state.bin --steps 300000000 --t0 0.60 --t1 0.60 --focus 2 --lam 0.5 --dmin 39 --seed 1003 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v004 --init ckpt/r752/state.bin --steps 300000000 --t0 0.60 --t1 0.60 --focus 2 --lam 0.5 --dmin 39 --seed 1004 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v005 --init ckpt/r761/state.bin --steps 300000000 --t0 0.60 --t1 0.60 --focus 2 --lam 0.5 --dmin 39 --seed 1005 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v006 --init ckpt/r752/state.bin --steps 300000000 --t0 0.60 --t1 0.60 --focus 2 --lam 0.5 --dmin 39 --seed 1006 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v007 --init ckpt/r761/state.bin --steps 300000000 --t0 0.60 --t1 0.60 --focus 2 --lam 0.5 --dmin 39 --seed 1007 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v008 --init ckpt/r752/state.bin --steps 300000000 --t0 0.60 --t1 0.60 --focus 2 --lam 0.5 --dmin 39 --seed 1008 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v009 --init ckpt/r761/state.bin --steps 300000000 --t0 0.65 --t1 0.65 --focus 2 --lam 0.5 --dmin 39 --seed 1009 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v010 --init ckpt/r752/state.bin --steps 300000000 --t0 0.65 --t1 0.65 --focus 2 --lam 0.5 --dmin 39 --seed 1010 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v011 --init ckpt/r761/state.bin --steps 300000000 --t0 0.65 --t1 0.65 --focus 2 --lam 0.5 --dmin 39 --seed 1011 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v012 --init ckpt/r752/state.bin --steps 300000000 --t0 0.65 --t1 0.65 --focus 2 --lam 0.5 --dmin 39 --seed 1012 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v013 --init ckpt/r761/state.bin --steps 300000000 --t0 0.65 --t1 0.65 --focus 2 --lam 0.5 --dmin 39 --seed 1013 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v014 --init ckpt/r752/state.bin --steps 300000000 --t0 0.65 --t1 0.65 --focus 2 --lam 0.5 --dmin 39 --seed 1014 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v015 --init ckpt/r761/state.bin --steps 300000000 --t0 0.65 --t1 0.65 --focus 2 --lam 0.5 --dmin 39 --seed 1015 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v016 --init ckpt/r752/state.bin --steps 300000000 --t0 0.65 --t1 0.65 --focus 2 --lam 0.5 --dmin 39 --seed 1016 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v017 --init ckpt/r761/state.bin --steps 300000000 --t0 0.70 --t1 0.70 --focus 2 --lam 0.5 --dmin 39 --seed 1017 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v018 --init ckpt/r752/state.bin --steps 300000000 --t0 0.70 --t1 0.70 --focus 2 --lam 0.5 --dmin 39 --seed 1018 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v019 --init ckpt/r761/state.bin --steps 300000000 --t0 0.70 --t1 0.70 --focus 2 --lam 0.5 --dmin 39 --seed 1019 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v020 --init ckpt/r752/state.bin --steps 300000000 --t0 0.70 --t1 0.70 --focus 2 --lam 0.5 --dmin 39 --seed 1020 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v021 --init ckpt/r761/state.bin --steps 300000000 --t0 0.70 --t1 0.70 --focus 2 --lam 0.5 --dmin 39 --seed 1021 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v022 --init ckpt/r752/state.bin --steps 300000000 --t0 0.70 --t1 0.70 --focus 2 --lam 0.5 --dmin 39 --seed 1022 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v023 --init ckpt/r761/state.bin --steps 300000000 --t0 0.70 --t1 0.70 --focus 2 --lam 0.5 --dmin 39 --seed 1023 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v024 --init ckpt/r752/state.bin --steps 300000000 --t0 0.70 --t1 0.70 --focus 2 --lam 0.5 --dmin 39 --seed 1024 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v025 --init ckpt/r761/state.bin --steps 300000000 --t0 0.70 --t1 0.70 --focus 2 --lam 0.5 --dmin 39 --seed 1025 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v026 --init ckpt/r752/state.bin --steps 300000000 --t0 0.70 --t1 0.70 --focus 2 --lam 0.5 --dmin 39 --seed 1026 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v027 --init ckpt/r761/state.bin --steps 300000000 --t0 0.75 --t1 0.75 --focus 2 --lam 0.5 --dmin 39 --seed 1027 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v028 --init ckpt/r752/state.bin --steps 300000000 --t0 0.75 --t1 0.75 --focus 2 --lam 0.5 --dmin 39 --seed 1028 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v029 --init ckpt/r761/state.bin --steps 300000000 --t0 0.75 --t1 0.75 --focus 2 --lam 0.5 --dmin 39 --seed 1029 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v030 --init ckpt/r752/state.bin --steps 300000000 --t0 0.75 --t1 0.75 --focus 2 --lam 0.5 --dmin 39 --seed 1030 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v031 --init ckpt/r761/state.bin --steps 300000000 --t0 0.75 --t1 0.75 --focus 2 --lam 0.5 --dmin 39 --seed 1031 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v032 --init ckpt/r752/state.bin --steps 300000000 --t0 0.75 --t1 0.75 --focus 2 --lam 0.5 --dmin 39 --seed 1032 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v033 --init ckpt/r761/state.bin --steps 300000000 --t0 0.75 --t1 0.75 --focus 2 --lam 0.5 --dmin 39 --seed 1033 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v034 --init ckpt/r752/state.bin --steps 300000000 --t0 0.75 --t1 0.75 --focus 2 --lam 0.5 --dmin 39 --seed 1034 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v035 --init ckpt/r761/state.bin --steps 300000000 --t0 0.75 --t1 0.75 --focus 2 --lam 0.5 --dmin 39 --seed 1035 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v036 --init ckpt/r752/state.bin --steps 300000000 --t0 0.75 --t1 0.75 --focus 2 --lam 0.5 --dmin 39 --seed 1036 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v037 --init ckpt/r761/state.bin --steps 300000000 --t0 0.80 --t1 0.80 --focus 2 --lam 0.5 --dmin 39 --seed 1037 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v038 --init ckpt/r752/state.bin --steps 300000000 --t0 0.80 --t1 0.80 --focus 2 --lam 0.5 --dmin 39 --seed 1038 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v039 --init ckpt/r761/state.bin --steps 300000000 --t0 0.80 --t1 0.80 --focus 2 --lam 0.5 --dmin 39 --seed 1039 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v040 --init ckpt/r752/state.bin --steps 300000000 --t0 0.80 --t1 0.80 --focus 2 --lam 0.5 --dmin 39 --seed 1040 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v041 --init ckpt/r761/state.bin --steps 300000000 --t0 0.80 --t1 0.80 --focus 2 --lam 0.5 --dmin 39 --seed 1041 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v042 --init ckpt/r752/state.bin --steps 300000000 --t0 0.80 --t1 0.80 --focus 2 --lam 0.5 --dmin 39 --seed 1042 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v043 --init ckpt/r761/state.bin --steps 300000000 --t0 0.80 --t1 0.80 --focus 2 --lam 0.5 --dmin 39 --seed 1043 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v044 --init ckpt/r752/state.bin --steps 300000000 --t0 0.80 --t1 0.80 --focus 2 --lam 0.5 --dmin 39 --seed 1044 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v045 --init ckpt/r761/state.bin --steps 300000000 --t0 0.80 --t1 0.80 --focus 2 --lam 0.5 --dmin 39 --seed 1045 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v046 --init ckpt/r752/state.bin --steps 300000000 --t0 0.80 --t1 0.80 --focus 2 --lam 0.5 --dmin 39 --seed 1046 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v047 --init ckpt/r761/state.bin --steps 300000000 --t0 0.85 --t1 0.85 --focus 2 --lam 0.5 --dmin 39 --seed 1047 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v048 --init ckpt/r752/state.bin --steps 300000000 --t0 0.85 --t1 0.85 --focus 2 --lam 0.5 --dmin 39 --seed 1048 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v049 --init ckpt/r761/state.bin --steps 300000000 --t0 0.85 --t1 0.85 --focus 2 --lam 0.5 --dmin 39 --seed 1049 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v050 --init ckpt/r752/state.bin --steps 300000000 --t0 0.85 --t1 0.85 --focus 2 --lam 0.5 --dmin 39 --seed 1050 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v051 --init ckpt/r761/state.bin --steps 300000000 --t0 0.85 --t1 0.85 --focus 2 --lam 0.5 --dmin 39 --seed 1051 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v052 --init ckpt/r752/state.bin --steps 300000000 --t0 0.85 --t1 0.85 --focus 2 --lam 0.5 --dmin 39 --seed 1052 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v053 --init ckpt/r761/state.bin --steps 300000000 --t0 0.85 --t1 0.85 --focus 2 --lam 0.5 --dmin 39 --seed 1053 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v054 --init ckpt/r752/state.bin --steps 300000000 --t0 0.85 --t1 0.85 --focus 2 --lam 0.5 --dmin 39 --seed 1054 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v055 --init ckpt/r761/state.bin --steps 300000000 --t0 0.85 --t1 0.85 --focus 2 --lam 0.5 --dmin 39 --seed 1055 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v056 --init ckpt/r752/state.bin --steps 300000000 --t0 0.85 --t1 0.85 --focus 2 --lam 0.5 --dmin 39 --seed 1056 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v057 --init ckpt/r761/state.bin --steps 300000000 --t0 0.90 --t1 0.90 --focus 2 --lam 0.5 --dmin 39 --seed 1057 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v058 --init ckpt/r752/state.bin --steps 300000000 --t0 0.90 --t1 0.90 --focus 2 --lam 0.5 --dmin 39 --seed 1058 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v059 --init ckpt/r761/state.bin --steps 300000000 --t0 0.90 --t1 0.90 --focus 2 --lam 0.5 --dmin 39 --seed 1059 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v060 --init ckpt/r752/state.bin --steps 300000000 --t0 0.90 --t1 0.90 --focus 2 --lam 0.5 --dmin 39 --seed 1060 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v061 --init ckpt/r761/state.bin --steps 300000000 --t0 0.90 --t1 0.90 --focus 2 --lam 0.5 --dmin 39 --seed 1061 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v062 --init ckpt/r752/state.bin --steps 300000000 --t0 0.90 --t1 0.90 --focus 2 --lam 0.5 --dmin 39 --seed 1062 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v063 --init ckpt/r761/state.bin --steps 300000000 --t0 0.90 --t1 0.90 --focus 2 --lam 0.5 --dmin 39 --seed 1063 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v064 --init ckpt/r752/state.bin --steps 300000000 --t0 0.90 --t1 0.90 --focus 2 --lam 0.5 --dmin 39 --seed 1064 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v065 --init ckpt/r761/state.bin --steps 300000000 --t0 0.65 --t1 0.65 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 1065 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v066 --init ckpt/r752/state.bin --steps 300000000 --t0 0.65 --t1 0.65 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 1066 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v067 --init ckpt/r761/state.bin --steps 300000000 --t0 0.65 --t1 0.65 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 1067 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v068 --init ckpt/r752/state.bin --steps 300000000 --t0 0.65 --t1 0.65 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 1068 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v069 --init ckpt/r761/state.bin --steps 300000000 --t0 0.70 --t1 0.70 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 1069 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v070 --init ckpt/r752/state.bin --steps 300000000 --t0 0.70 --t1 0.70 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 1070 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v071 --init ckpt/r761/state.bin --steps 300000000 --t0 0.70 --t1 0.70 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 1071 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v072 --init ckpt/r752/state.bin --steps 300000000 --t0 0.70 --t1 0.70 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 1072 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v073 --init ckpt/r761/state.bin --steps 300000000 --t0 0.80 --t1 0.80 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 1073 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v074 --init ckpt/r752/state.bin --steps 300000000 --t0 0.80 --t1 0.80 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 1074 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v075 --init ckpt/r761/state.bin --steps 300000000 --t0 0.80 --t1 0.80 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 1075 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v076 --init ckpt/r752/state.bin --steps 300000000 --t0 0.80 --t1 0.80 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 --seed 1076 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v077 --init ckpt/r761/state.bin --steps 300000000 --t0 0.65 --t1 0.65 --focus 5 --lam 0.5 --dmin 39 --seed 1077 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v078 --init ckpt/r752/state.bin --steps 300000000 --t0 0.65 --t1 0.65 --focus 5 --lam 0.5 --dmin 39 --seed 1078 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v079 --init ckpt/r761/state.bin --steps 300000000 --t0 0.65 --t1 0.65 --focus 5 --lam 0.5 --dmin 39 --seed 1079 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v080 --init ckpt/r752/state.bin --steps 300000000 --t0 0.65 --t1 0.65 --focus 5 --lam 0.5 --dmin 39 --seed 1080 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v081 --init ckpt/r761/state.bin --steps 300000000 --t0 0.92 --t1 0.60 --cycles 6 --focus 2 --lam 0.5 --dmin 39 --seed 1081 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v082 --init ckpt/r752/state.bin --steps 300000000 --t0 0.92 --t1 0.60 --cycles 6 --focus 2 --lam 0.5 --dmin 39 --seed 1082 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v083 --init ckpt/r761/state.bin --steps 300000000 --t0 0.92 --t1 0.60 --cycles 6 --focus 2 --lam 0.5 --dmin 39 --seed 1083 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v084 --init ckpt/r752/state.bin --steps 300000000 --t0 0.92 --t1 0.60 --cycles 6 --focus 2 --lam 0.5 --dmin 39 --seed 1084 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v085 --init ckpt/r761/state.bin --steps 300000000 --t0 0.92 --t1 0.60 --cycles 6 --focus 2 --lam 0.5 --dmin 39 --seed 1085 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v086 --init ckpt/r752/state.bin --steps 300000000 --t0 0.92 --t1 0.60 --cycles 6 --focus 2 --lam 0.5 --dmin 39 --seed 1086 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v087 --init ckpt/r761/state.bin --steps 300000000 --t0 0.92 --t1 0.60 --cycles 6 --focus 2 --lam 0.5 --dmin 39 --seed 1087 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v088 --init ckpt/r752/state.bin --steps 300000000 --t0 0.92 --t1 0.60 --cycles 6 --focus 2 --lam 0.5 --dmin 39 --seed 1088 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v089 --init ckpt/r761/state.bin --steps 300000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39 --seed 1089 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v090 --init ckpt/r752/state.bin --steps 300000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39 --seed 1090 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v091 --init ckpt/r761/state.bin --steps 300000000 --t0 0.35 --t1 0.35 --focus 2 --lam 0.15 --dmin 39 --seed 1091 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v092 --init ckpt/r752/state.bin --steps 300000000 --t0 0.35 --t1 0.35 --focus 2 --lam 0.15 --dmin 39 --seed 1092 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v093 --init ckpt/r761/state.bin --steps 300000000 --t0 0.30 --t1 0.30 --focus 1 --lam 0.3 --dmin 39 --seed 1093 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v094 --init ckpt/r752/state.bin --steps 300000000 --t0 0.30 --t1 0.30 --focus 1 --lam 0.3 --dmin 39 --seed 1094 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v095 --init ckpt/r761/state.bin --steps 300000000 --t0 0.25 --t1 0.25 --focus 2 --lam 0.05 --dmin 39 --seed 1095 --log-every 10000000 --ckpt-every 2000000
+python -u src/anneal.py --tag v096 --init ckpt/r752/state.bin --steps 300000000 --t0 0.25 --t1 0.25 --focus 2 --lam 0.05 --dmin 39 --seed 1096 --log-every 10000000 --ckpt-every 2000000

@@ -86,6 +86,7 @@ static double deficit(const uint8_t *g) { int r[4]; if (!raw4(g, r)) return 50.0
 
 static uint8_t G[N][L], GT[L][N], bestG[N][L];
 static int D[N][N];
+static double RM[N];   // extra pair-penalty weight of each grid (--special / --boost), 0 for ordinary grids
 static long long cur = 0, best = -1, step0 = 0;
 
 static inline int top_sum(const int *h, int need) { int s = 0; for (int d = 0; d < NB && need > 0; d++) { int c = h[d]; if (c >= need) { s += need * d; need = 0; } else { s += c * d; need -= c; } } return s; }
@@ -94,11 +95,104 @@ static void build_D() { for (int i = 0; i < N; i++) for (int j = 0; j < N; j++) 
 
 struct Cand { int p, q; uint8_t vp, vq; double gain, geff, key; };
 
+// ---- Probe of the algebraic construction (UPDATES.md 2026-11-12): the 125 affine functions over GF(5)^2 drawn on 49 cells ----
+// State: site[c] in 0..24 (24 sites hold two cells, one holds one) and perm[c][v] = district shown by cell c for code value v.
+// Codeword (al, be, ga) -> g[c] = perm[c][(al * a + be * b + ga) % 5] with (a, b) = (site[c] / 5, site[c] % 5).
+// Any two of the 125 grids differ in >= 39 cells whatever site/perm are.  Simulated annealing over site/perm looks for a
+// design that makes as many of them valid as possible: energy = sum of the `keep` smallest validity deficits.
+// Output file: 125 x 49 bytes (grids of the best design), then 49 x (site, 5 districts).   Run: --crystal --state <out> ...
+static int crystal_main(const std::string &out, long long steps, double t0, double t1, uint64_t seed, long long log_every, int keep, int pairing, const std::string &cinit, double cstep) {
+    Rng rng; rng.seed(seed * 7919 + 777);
+    int site[L]; uint8_t perm[L][5];
+    if (pairing == 0) {            // 21 vertical dominoes in rows 0-5, three horizontal dominoes and one single cell in row 6
+        int ns = 0;
+        for (int c = 0; c < 7; c++) for (int r = 0; r < 6; r += 2) { site[r * 7 + c] = ns; site[(r + 1) * 7 + c] = ns; ns++; }
+        for (int c = 0; c < 6; c += 2) { site[42 + c] = ns; site[43 + c] = ns; ns++; }
+        site[48] = ns;
+    } else {                       // random pairing of the cells
+        int cells[L]; for (int i = 0; i < L; i++) cells[i] = i;
+        for (int i = L - 1; i > 0; i--) std::swap(cells[i], cells[rng.below(i + 1)]);
+        for (int i = 0; i < L; i++) site[cells[i]] = i / 2;
+    }
+    { int lab[25]; for (int i = 0; i < 25; i++) lab[i] = i; for (int i = 24; i > 0; i--) std::swap(lab[i], lab[rng.below(i + 1)]); for (int c = 0; c < L; c++) site[c] = lab[site[c]]; }
+    for (int c = 0; c < L; c++) { for (int v = 0; v < 5; v++) perm[c][v] = (uint8_t)v; for (int v = 4; v > 0; v--) std::swap(perm[c][v], perm[c][rng.below(v + 1)]); }
+    if (!cinit.empty()) {          // --cinit <earlier output file>: continue from that design instead of a random one
+        FILE *fi = fopen(cinit.c_str(), "rb"); bool ok = fi && fseek(fi, 125L * L, SEEK_SET) == 0;
+        for (int c = 0; ok && c < L; c++) { uint8_t s = 0; ok = fread(&s, 1, 1, fi) == 1 && fread(perm[c], 1, 5, fi) == 5; site[c] = s; }
+        if (fi) fclose(fi);
+        if (!ok) { fprintf(stderr, "cannot read design %s\n", cinit.c_str()); return 3; }
+    }
+    static uint8_t CW[125][L];
+    double def[125], nd[125], srt[125];
+    if (keep > 125) keep = 125;
+    auto energy = [&](double *d, int *nv) {
+        int v = 0;
+        for (int f = 0; f < 125; f++) {
+            int al = f / 25, be = (f / 5) % 5, ga = f % 5; uint8_t *g = CW[f];
+            for (int c = 0; c < L; c++) { int s = site[c]; g[c] = perm[c][(al * (s / 5) + be * (s % 5) + ga) % 5]; }
+            d[f] = deficit(g); if (d[f] > 0) d[f] += cstep; else v++;   // --cstep: fixed extra cost of every invalid grid
+        }
+        memcpy(srt, d, sizeof(double) * 125); std::sort(srt, srt + 125);
+        double e = 0; for (int k = 0; k < keep; k++) e += srt[k];
+        *nv = v; return e;
+    };
+    int V; double E = energy(def, &V), bestE = E; int bestV = V;
+    int bsite[L]; uint8_t bperm[L][5]; memcpy(bsite, site, sizeof(site)); memcpy(bperm, perm, sizeof(perm));
+    auto save = [&]() {            // writes the grids and the design of the best state so far
+        int ssite[L]; uint8_t sperm[L][5]; memcpy(ssite, site, sizeof(site)); memcpy(sperm, perm, sizeof(perm));
+        memcpy(site, bsite, sizeof(site)); memcpy(perm, bperm, sizeof(perm));
+        int nv; energy(nd, &nv);
+        std::string tmp = out + ".tmp"; FILE *fo = fopen(tmp.c_str(), "wb");
+        if (fo) { fwrite(CW, 1, sizeof(CW), fo); for (int c = 0; c < L; c++) { uint8_t s = (uint8_t)site[c]; fwrite(&s, 1, 1, fo); fwrite(perm[c], 1, 5, fo); } fclose(fo); rename(tmp.c_str(), out.c_str()); }
+        memcpy(site, ssite, sizeof(site)); memcpy(perm, sperm, sizeof(perm));
+    };
+    signal(SIGTERM, on_sig); signal(SIGUSR1, on_sig); signal(SIGINT, on_sig);
+    long long acc = 0; clock_t c0 = clock();
+    printf("[crystal %s] start: E %.2f valid %d / 125 (keep %d, pairing %d)\n", out.c_str(), E, V, keep, pairing); fflush(stdout);
+    for (long long step = 1; step <= steps && !g_stop; step++) {
+        double T = t0 * std::pow(t1 / t0, (double)step / steps);
+        int kind = rng.below(10), c1 = rng.below(L), c2 = rng.below(L), u = rng.below(5), v = rng.below(5);
+        int s1 = site[c1], s2 = site[c2];
+        if ((kind <= 4 && u == v) || ((kind == 5 || kind == 6 || kind == 9) && s1 == s2) || ((kind == 7 || kind == 8) && c1 == c2)) continue;
+        // 0-2: swap two districts in one cell; 3-4: the same value swap in every cell of one site; 5-6: exchange two sites;
+        // 7-8: exchange the content of two cells; 9: exchange the sites of two cells.  Every move is its own inverse.
+        auto doit = [&]() {
+            if (kind <= 2) std::swap(perm[c1][u], perm[c1][v]);
+            else if (kind <= 4) { for (int c = 0; c < L; c++) if (site[c] == s1) std::swap(perm[c][u], perm[c][v]); }
+            else if (kind <= 6) { for (int c = 0; c < L; c++) { if (site[c] == s1) site[c] = s2; else if (site[c] == s2) site[c] = s1; } }
+            else if (kind <= 8) { std::swap(site[c1], site[c2]); for (int x = 0; x < 5; x++) std::swap(perm[c1][x], perm[c2][x]); }
+            else std::swap(site[c1], site[c2]);
+        };
+        doit();
+        int nv; double e = energy(nd, &nv);
+        if (e <= E || rng.uni() < std::exp((E - e) / T)) {
+            E = e; V = nv; acc++; memcpy(def, nd, sizeof(def));
+            if (V > bestV || (V == bestV && E < bestE)) { bestV = V; bestE = E; memcpy(bsite, site, sizeof(site)); memcpy(bperm, perm, sizeof(perm)); }
+        } else doit();
+        if (step % log_every == 0) {
+            printf("step %lld T %.3f E %.2f valid %d best %d (E %.2f) acc %lld  %.0f moves/s\n", step, T, E, V, bestV, bestE, acc, step / ((double)(clock() - c0) / CLOCKS_PER_SEC + 1e-9)); fflush(stdout);
+            save();
+        }
+    }
+    save();
+    memcpy(site, bsite, sizeof(site)); memcpy(perm, bperm, sizeof(perm));
+    int nv; energy(nd, &nv);
+    int fail[4] = {0, 0, 0, 0}, parks[L + 1]; memset(parks, 0, sizeof(parks));
+    for (int f = 0; f < 125; f++) { int r[4]; if (raw4(CW[f], r)) for (int a = 0; a < 4; a++) fail[a] += r[a] < THR[a]; int np = 0; for (int c = 0; c < L; c++) np += CW[f][c] == 3; parks[np]++; }
+    printf("finished: best valid %d / 125 (E %.2f); failing Wellness %d Tax %d Transportation %d Business %d; parks per grid:", nv, bestE, fail[0], fail[1], fail[2], fail[3]);
+    for (int k = 0; k <= L; k++) if (parks[k]) printf(" %d:%d", k, parks[k]);
+    printf("\n"); fflush(stdout);
+    return 0;
+}
+
 int main(int argc, char **argv) {
     std::string init, state, mode = "run";
     long long steps = 1000000, log_every = 100000, ckpt_every = 500000;
     double t0 = 1.0, t1 = 0.05, focus = 15.0, lam = 0.0, lam2 = 0.0, lam_end = -1.0, lam2_end = -1.0;
-    int nswap = 200, dmin = 38, dmin2 = 40, max_tries = 128, cycles = 1;
+    int nswap = 200, dmin = 38, dmin2 = 40, max_tries = 128, cycles = 1, special = 0;
+    double boost = 0.0;   // --special M --boost B: pair penalties involving one of the first M grids are multiplied by 1+B (1+2B if both)
+    int keep = 100, pairing = 0; std::string cinit; double cstep = 0.0;   // --crystal mode only (see crystal_main)
+    int frozen = 0;       // --frozen M: the first M grids are never changed (they must be valid); build as bin/anneal6
     uint64_t seed = 0;
     for (int i = 1; i < argc; i++) {
         std::string a = argv[i];
@@ -112,6 +206,9 @@ int main(int argc, char **argv) {
         else if (a == "--log-every") log_every = atoll(nx().c_str()); else if (a == "--ckpt-every") ckpt_every = atoll(nx().c_str());
         else if (a == "--thr") { for (int k = 0; k < 4; k++) THR[k] = atoi(nx().c_str()); }
         else if (a == "--score") { mode = "score"; init = nx(); }
+        else if (a == "--special") special = atoi(nx().c_str()); else if (a == "--boost") boost = atof(nx().c_str());
+        else if (a == "--crystal") mode = "crystal"; else if (a == "--keep") keep = atoi(nx().c_str()); else if (a == "--pairing") pairing = atoi(nx().c_str());
+        else if (a == "--frozen") frozen = atoi(nx().c_str()); else if (a == "--cinit") cinit = nx(); else if (a == "--cstep") cstep = atof(nx().c_str());
         else { fprintf(stderr, "unknown arg %s\n", a.c_str()); return 2; }
     }
     for (int i = 0; i < L; i++) for (int j = 0; j < L; j++) MAN[i][j] = abs(i / 7 - j / 7) + abs(i % 7 - j % 7);
@@ -120,10 +217,14 @@ int main(int argc, char **argv) {
         while (fread(g, 1, L, f) == L) { int r[4] = {0, 0, 0, 0}; bool ok = raw4(g, r); printf("%d %d %d %d %d\n", ok ? 1 : 0, r[0], r[1], r[2], r[3]); }
         fclose(f); return 0;
     }
+    if (mode == "crystal") return crystal_main(state, steps, t0, t1, seed, log_every, keep, pairing, cinit, cstep);
     double W[NB]; bool usepen = lam > 0 || lam2 > 0;
     if (lam_end < 0) lam_end = lam; if (lam2_end < 0) lam2_end = lam2;
     auto setW = [&](double frac) { double l1 = lam + (lam_end - lam) * frac, l2 = lam2 + (lam2_end - lam2) * frac; for (int d = 0; d < NB; d++) W[d] = l1 * std::max(0, dmin - d) + l2 * std::max(0, dmin2 - d); };
     setW(0.0);
+    if (special > N) special = N;
+    if (frozen < 0) frozen = 0; if (frozen > N - 1) frozen = N - 1;
+    for (int j = 0; j < N; j++) RM[j] = j < special ? boost : 0.0;
     Rng rng; rng.seed(seed * 7919 + 12345);
     bool resumed = false;
     { FILE *f = fopen(state.c_str(), "rb");
@@ -150,12 +251,16 @@ int main(int argc, char **argv) {
         for (int j = 0; j < N; j++) { int *h = hist[j]; memset(h, 0, sizeof(int) * NB); for (int k = 0; k < N; k++) if (k != j && k != i) h[D[j][k]]++; }
         for (int j = 0; j < N; j++) { if (j == i) { S9[j] = 0; t10[j] = 0; continue; } const int *h = hist[j]; int need = K - 1, s = 0, d = 0; for (; d < NB; d++) { int c = h[d]; if (c > need) break; s += c * d; need -= c; } s += need * d; S9[j] = s; t10[j] = d; }
         long long base = 0; for (int j = 0; j < N; j++) base += S9[j];
-        double pen_cur = 0; if (usepen) for (int j = 0; j < N; j++) if (j != i) pen_cur += W[D[i][j]];
+        double pen_cur = 0; if (usepen) for (int j = 0; j < N; j++) if (j != i) pen_cur += (1.0 + RM[i] + RM[j]) * W[D[i][j]];
         cands.clear();
         auto eval = [&](Cand &c) {
             int tot = 0; for (int j = 0; j < N; j++) { int x = nd[j], t = t10[j]; tot += x < t ? x : t; }
             int h[NB] = {0}; for (int j = 0; j < N; j++) h[nd[j]]++; h[nd[i]]--;
-            double pen = 0; if (usepen) for (int d = 0; d < NB; d++) pen += h[d] * W[d];
+            double pen = 0;
+            if (usepen) {
+                if (special > 0) { double ri = 1.0 + RM[i]; for (int j = 0; j < N; j++) if (j != i) pen += (ri + RM[j]) * W[nd[j]]; }
+                else for (int d = 0; d < NB; d++) pen += h[d] * W[d];
+            }
             c.gain = (double)(base + tot + top_sum(h, K) - cur); c.geff = c.gain - (pen - pen_cur);
         };
         const uint8_t *gi = G[i];
@@ -179,7 +284,8 @@ int main(int argc, char **argv) {
         cur += (long long)c.gain;
     };
 
-    // repair phase: make every grid valid
+    for (int j = 0; j < frozen; j++) if (!valid_grid(G[j])) { fprintf(stderr, "frozen grid %d is invalid\n", j); return 7; }
+    // repair phase: make every grid valid (frozen grids are valid already, so they are never touched)
     { double def[N]; int ninv = 0; for (int i = 0; i < N; i++) { def[i] = deficit(G[i]); ninv += def[i] > 0; }
       long long rep = 0;
       while (ninv > 0 && rep < 200000) {
@@ -206,15 +312,20 @@ int main(int argc, char **argv) {
         if (step % log_every == 0 && step > step0) {
             int p38 = 0, p37 = 0, mn = 99; for (int i = 0; i < N; i++) for (int j = i + 1; j < N; j++) { int d = D[i][j]; p38 += d < 38; p37 += d < 37; if (d < mn) mn = d; }
             if (full_score() != cur) { fprintf(stderr, "score bookkeeping mismatch\n"); return 6; }
+            if (special > 0) {   // how many neighbours at distance <= 38 the special grids still have (fewer than 10 raises the score)
+                int ks = 0, kmin = 999, nlt = 0; long long cs = 0;
+                for (int a = 0; a < special; a++) { int k = 0, h[NB] = {0}; for (int j = 0; j < N; j++) if (j != a) { k += D[a][j] <= 38; h[D[a][j]]++; } cs += top_sum(h, K); ks += k; if (k < kmin) kmin = k; nlt += k < 10; }
+                printf("special rows: mean %.1f min %d neighbours at <=38, %d of %d below 10, mean contribution %.2f (other rows %.2f)\n", (double)ks / special, kmin, nlt, special, (double)cs / special, special < N ? (double)(cur - cs) / (N - special) : 0.0);
+            }
             printf("step %lld T %.3f score %lld (%.5f) best %lld (%.5f) acc %lld pairs<38 %d <37 %d min %d  %.0f steps/s\n", step, T, cur, cur / 49000.0, best, best / 49000.0, acc, p38, p37, mn,
                    (step - step0) / ((double)(clock() - c0) / CLOCKS_PER_SEC + 1e-9)); fflush(stdout);
         }
         if (step % ckpt_every == 0 && step > step0) save(step, false);
         // choose a grid, favouring low contributors
         int contrib[N], cmin = 1 << 30; double w[N], ws = 0;
-        for (int j = 0; j < N; j++) { int h[NB] = {0}; for (int k = 0; k < N; k++) if (k != j) h[D[j][k]]++; contrib[j] = top_sum(h, K); if (contrib[j] < cmin) cmin = contrib[j]; }
-        for (int j = 0; j < N; j++) { w[j] = std::exp(-(contrib[j] - cmin) / focus); ws += w[j]; }
-        double u = rng.uni() * ws; int i = 0; for (; i < N - 1; i++) { u -= w[i]; if (u <= 0) break; }
+        for (int j = frozen; j < N; j++) { int h[NB] = {0}; for (int k = 0; k < N; k++) if (k != j) h[D[j][k]]++; contrib[j] = top_sum(h, K); if (contrib[j] < cmin) cmin = contrib[j]; }
+        for (int j = frozen; j < N; j++) { w[j] = std::exp(-(contrib[j] - cmin) / focus); ws += w[j]; }
+        double u = rng.uni() * ws; int i = frozen; for (; i < N - 1; i++) { u -= w[i]; if (u <= 0) break; }
         gen(i, allsw);
         int M = (int)cands.size();
         for (int k = 0; k < M; k++) cands[k].key = cands[k].geff + T * rng.gumbel();

@@ -2,7 +2,7 @@
 
   python -u src/make_exact_submission.py --name S18 --source ckpt/g7/state.npz --purpose "..."
 
---source: .npy (100,7,7), or .npz with `grids`, or an optimiser state.npz (uses `bestG`).
+--source: .npy (100,7,7), or .npz with `grids`, or an optimiser state.npz / C++ state.bin (uses `bestG`).
 Refuses to write unless all 100 grids are distinct and valid under rules.THRESH (the safe thresholds).
 """
 import argparse, hashlib, json, os, time
@@ -18,11 +18,12 @@ p.add_argument("--source", required=True)
 p.add_argument("--purpose", default="")
 args = p.parse_args()
 
-z = np.load(os.path.join(ROOT, args.source))
-if args.source.endswith(".npz"):
-    G = z["bestG"] if "bestG" in z.files else z["grids"]
+if args.source.endswith(".bin"):  # C++ annealer state (ckpt/<tag>/state.bin, chain may still be running): best set so far
+    from anneal import read_state
+    G = read_state(os.path.join(ROOT, args.source))["bestG"]
 else:
-    G = z
+    z = np.load(os.path.join(ROOT, args.source))
+    G = (z["bestG"] if "bestG" in z.files else z["grids"]) if args.source.endswith(".npz") else z
 sub = np.asarray(G).reshape(100, 7, 7).astype(int)
 assert sub.shape == (100, 7, 7) and sub.min() >= 0 and sub.max() <= 4
 assert len(np.unique(sub.reshape(100, -1), axis=0)) == 100, "duplicate grids"

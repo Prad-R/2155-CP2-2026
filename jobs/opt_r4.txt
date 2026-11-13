@@ -1,0 +1,96 @@
+python -u src/islands.py y001 ckpt/v073/state.bin own 3001 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y002 ckpt/v073/state.bin best 3002 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y003 ckpt/v073/state.bin best 3003 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y004 ckpt/v073/state.bin best 3004 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y005 ckpt/v073/state.bin best 3005 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y006 ckpt/v073/state.bin best 3006 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y007 ckpt/v073/state.bin own 3007 6x50000000 --t0 0.40 --t1 0.40 --focus 2 --lam 0.2 --dmin 39
+python -u src/islands.py y008 ckpt/v073/state.bin best 3008 6x50000000 --t0 0.40 --t1 0.40 --focus 2 --lam 0.2 --dmin 39
+python -u src/islands.py y009 ckpt/v073/state.bin best 3009 6x50000000 --t0 0.40 --t1 0.40 --focus 2 --lam 0.2 --dmin 39
+python -u src/islands.py y010 ckpt/v073/state.bin own 3010 6x50000000 --t0 0.35 --t1 0.35 --focus 2 --lam 0.15 --dmin 39
+python -u src/islands.py y011 ckpt/v073/state.bin best 3011 6x50000000 --t0 0.35 --t1 0.35 --focus 2 --lam 0.15 --dmin 39
+python -u src/islands.py y012 ckpt/v073/state.bin best 3012 6x50000000 --t0 0.35 --t1 0.35 --focus 2 --lam 0.15 --dmin 39
+python -u src/islands.py y013 ckpt/v073/state.bin best 3013 6x50000000 --t0 0.50 --t1 0.50 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y014 ckpt/v073/state.bin best 3014 6x50000000 --t0 0.50 --t1 0.50 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y015 ckpt/v073/state.bin own 3015 6x50000000 --t0 0.45 --t1 0.45 --focus 5 --lam 0.25 --dmin 39 --lam2 0.05 --dmin2 41
+python -u src/islands.py y016 ckpt/v073/state.bin best 3016 6x50000000 --t0 0.45 --t1 0.45 --focus 5 --lam 0.25 --dmin 39 --lam2 0.05 --dmin2 41
+python -u src/islands.py y017 ckpt/v069/state.bin own 3017 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y018 ckpt/v069/state.bin best 3018 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y019 ckpt/v069/state.bin best 3019 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y020 ckpt/v069/state.bin best 3020 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y021 ckpt/v069/state.bin own 3021 6x50000000 --t0 0.40 --t1 0.40 --focus 2 --lam 0.2 --dmin 39
+python -u src/islands.py y022 ckpt/v069/state.bin best 3022 6x50000000 --t0 0.40 --t1 0.40 --focus 2 --lam 0.2 --dmin 39
+python -u src/islands.py y023 ckpt/v069/state.bin own 3023 6x50000000 --t0 0.35 --t1 0.35 --focus 2 --lam 0.15 --dmin 39
+python -u src/islands.py y024 ckpt/v069/state.bin best 3024 6x50000000 --t0 0.35 --t1 0.35 --focus 2 --lam 0.15 --dmin 39
+python -u src/islands.py y025 ckpt/v069/state.bin best 3025 6x50000000 --t0 0.50 --t1 0.50 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y026 ckpt/v069/state.bin best 3026 6x50000000 --t0 0.45 --t1 0.45 --focus 5 --lam 0.25 --dmin 39 --lam2 0.05 --dmin2 41
+python -u src/islands.py y027 ckpt/v018/state.bin own 3027 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y028 ckpt/v018/state.bin best 3028 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y029 ckpt/v018/state.bin best 3029 6x50000000 --t0 0.40 --t1 0.40 --focus 2 --lam 0.2 --dmin 39
+python -u src/islands.py y030 ckpt/v018/state.bin own 3030 6x50000000 --t0 0.35 --t1 0.35 --focus 2 --lam 0.15 --dmin 39
+python -u src/islands.py y031 ckpt/v018/state.bin best 3031 6x50000000 --t0 0.50 --t1 0.50 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y032 ckpt/v070/state.bin own 3032 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y033 ckpt/v070/state.bin best 3033 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y034 ckpt/v070/state.bin best 3034 6x50000000 --t0 0.40 --t1 0.40 --focus 2 --lam 0.2 --dmin 39
+python -u src/islands.py y035 ckpt/v070/state.bin own 3035 6x50000000 --t0 0.35 --t1 0.35 --focus 2 --lam 0.15 --dmin 39
+python -u src/islands.py y036 ckpt/v070/state.bin best 3036 6x50000000 --t0 0.50 --t1 0.50 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y037 ckpt/v072/state.bin own 3037 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y038 ckpt/v072/state.bin best 3038 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y039 ckpt/v072/state.bin best 3039 6x50000000 --t0 0.40 --t1 0.40 --focus 2 --lam 0.2 --dmin 39
+python -u src/islands.py y040 ckpt/v072/state.bin own 3040 6x50000000 --t0 0.35 --t1 0.35 --focus 2 --lam 0.15 --dmin 39
+python -u src/islands.py y041 ckpt/v072/state.bin best 3041 6x50000000 --t0 0.50 --t1 0.50 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y042 ckpt/v074/state.bin own 3042 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y043 ckpt/v074/state.bin best 3043 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y044 ckpt/v074/state.bin best 3044 6x50000000 --t0 0.40 --t1 0.40 --focus 2 --lam 0.2 --dmin 39
+python -u src/islands.py y045 ckpt/v074/state.bin own 3045 6x50000000 --t0 0.35 --t1 0.35 --focus 2 --lam 0.15 --dmin 39
+python -u src/islands.py y046 ckpt/v074/state.bin best 3046 6x50000000 --t0 0.50 --t1 0.50 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y047 ckpt/v090/state.bin own 3047 6x50000000 --t0 0.40 --t1 0.40 --focus 2 --lam 0.2 --dmin 39
+python -u src/islands.py y048 ckpt/v092/state.bin own 3048 6x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y049 ckpt/r761/state.bin own 3049 1x150000000 --t0 0.70 --t1 0.70 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y050 ckpt/r752/state.bin own 3050 1x150000000 --t0 0.70 --t1 0.70 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y051 ckpt/r761/state.bin own 3051 1x150000000 --t0 0.70 --t1 0.70 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y052 ckpt/r752/state.bin own 3052 1x150000000 --t0 0.70 --t1 0.70 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y053 ckpt/r761/state.bin own 3053 1x150000000 --t0 0.70 --t1 0.70 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y054 ckpt/r752/state.bin own 3054 1x150000000 --t0 0.70 --t1 0.70 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y055 ckpt/r761/state.bin own 3055 1x150000000 --t0 0.70 --t1 0.70 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y056 ckpt/r752/state.bin own 3056 1x150000000 --t0 0.70 --t1 0.70 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y057 ckpt/r761/state.bin own 3057 1x150000000 --t0 0.70 --t1 0.70 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y058 ckpt/r752/state.bin own 3058 1x150000000 --t0 0.70 --t1 0.70 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y059 ckpt/r761/state.bin own 3059 1x150000000 --t0 0.70 --t1 0.70 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y060 ckpt/r752/state.bin own 3060 1x150000000 --t0 0.70 --t1 0.70 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y061 ckpt/r761/state.bin own 3061 1x150000000 --t0 0.75 --t1 0.75 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y062 ckpt/r752/state.bin own 3062 1x150000000 --t0 0.75 --t1 0.75 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y063 ckpt/r761/state.bin own 3063 1x150000000 --t0 0.75 --t1 0.75 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y064 ckpt/r752/state.bin own 3064 1x150000000 --t0 0.75 --t1 0.75 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y065 ckpt/r761/state.bin own 3065 1x150000000 --t0 0.75 --t1 0.75 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y066 ckpt/r752/state.bin own 3066 1x150000000 --t0 0.75 --t1 0.75 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y067 ckpt/r761/state.bin own 3067 1x150000000 --t0 0.75 --t1 0.75 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y068 ckpt/r752/state.bin own 3068 1x150000000 --t0 0.75 --t1 0.75 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y069 ckpt/r761/state.bin own 3069 1x150000000 --t0 0.75 --t1 0.75 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y070 ckpt/r752/state.bin own 3070 1x150000000 --t0 0.75 --t1 0.75 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y071 ckpt/r761/state.bin own 3071 1x150000000 --t0 0.75 --t1 0.75 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y072 ckpt/r752/state.bin own 3072 1x150000000 --t0 0.75 --t1 0.75 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y073 ckpt/r761/state.bin own 3073 1x150000000 --t0 0.80 --t1 0.80 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y074 ckpt/r752/state.bin own 3074 1x150000000 --t0 0.80 --t1 0.80 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y075 ckpt/r761/state.bin own 3075 1x150000000 --t0 0.80 --t1 0.80 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y076 ckpt/r752/state.bin own 3076 1x150000000 --t0 0.80 --t1 0.80 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y077 ckpt/r761/state.bin own 3077 1x150000000 --t0 0.80 --t1 0.80 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y078 ckpt/r752/state.bin own 3078 1x150000000 --t0 0.80 --t1 0.80 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y079 ckpt/r761/state.bin own 3079 1x150000000 --t0 0.80 --t1 0.80 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y080 ckpt/r752/state.bin own 3080 1x150000000 --t0 0.80 --t1 0.80 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y081 ckpt/r761/state.bin own 3081 1x150000000 --t0 0.80 --t1 0.80 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y082 ckpt/r752/state.bin own 3082 1x150000000 --t0 0.80 --t1 0.80 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y083 ckpt/r761/state.bin own 3083 1x150000000 --t0 0.80 --t1 0.80 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y084 ckpt/r752/state.bin own 3084 1x150000000 --t0 0.80 --t1 0.80 --focus 5 --lam 0.3 --dmin 39 --lam2 0.1 --dmin2 41 :: 3x50000000 --t0 0.45 --t1 0.45 --focus 2 --lam 0.25 --dmin 39
+python -u src/islands.py y085 ckpt/v073/state.bin best 3085 6x50000000 --t0 0.60 --t1 0.35 --cycles 5 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y086 ckpt/v073/state.bin best 3086 6x50000000 --t0 0.60 --t1 0.35 --cycles 5 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y087 ckpt/v073/state.bin best 3087 6x50000000 --t0 0.60 --t1 0.35 --cycles 5 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y088 ckpt/v073/state.bin best 3088 6x50000000 --t0 0.60 --t1 0.35 --cycles 5 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y089 ckpt/v073/state.bin best 3089 6x50000000 --t0 0.60 --t1 0.35 --cycles 5 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y090 ckpt/v073/state.bin best 3090 6x50000000 --t0 0.60 --t1 0.35 --cycles 5 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y091 ckpt/v069/state.bin best 3091 6x50000000 --t0 0.60 --t1 0.35 --cycles 5 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y092 ckpt/v069/state.bin best 3092 6x50000000 --t0 0.60 --t1 0.35 --cycles 5 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y093 ckpt/v069/state.bin best 3093 6x50000000 --t0 0.60 --t1 0.35 --cycles 5 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y094 ckpt/v070/state.bin own 3094 6x50000000 --t0 0.60 --t1 0.35 --cycles 5 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y095 ckpt/v072/state.bin own 3095 6x50000000 --t0 0.60 --t1 0.35 --cycles 5 --focus 2 --lam 0.3 --dmin 39
+python -u src/islands.py y096 ckpt/v074/state.bin own 3096 6x50000000 --t0 0.60 --t1 0.35 --cycles 5 --focus 2 --lam 0.3 --dmin 39

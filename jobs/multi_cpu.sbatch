@@ -16,6 +16,11 @@ source /etc/profile.d/modules.sh
 module load miniforge/26.7.2-0
 conda activate 2.156_cp_2
 cd "$SLURM_SUBMIT_DIR"
+# Optional guard: export CP2_SKIP_IF="<command>" before sbatch. If the command succeeds at start (or after a
+# requeue), the job is not needed any more and exits at once without running anything.
+if [ -n "${CP2_SKIP_IF:-}" ] && bash -c "$CP2_SKIP_IF"; then
+    echo "=== $(date) job $SLURM_JOB_ID: skip condition met ($CP2_SKIP_IF), nothing to run"; exit 0
+fi
 NCMD=$(grep -cv '^\s*$' "$1")
 T=$(( ${SLURM_CPUS_PER_TASK:-4} / NCMD )); [ "$T" -lt 1 ] && T=1
 export OMP_NUM_THREADS=$T MKL_NUM_THREADS=$T OPENBLAS_NUM_THREADS=$T
