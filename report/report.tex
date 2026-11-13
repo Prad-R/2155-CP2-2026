@@ -13,7 +13,7 @@
 \graphicspath{{figs/}}
 
 \title{Challenge Problem 2 (City Zoning):\\ What made it hard, what we did, and what we learned}
-\author{2.155/2.156}
+\author{Pradyumnan Raghuveeran \and Rasmus Makela}
 \date{November 13, 2026}
 
 \begin{document}
@@ -131,6 +131,9 @@ S21 & cold polish of a record set & 0.7754 & built, held back \\
 \item \textbf{A bound.} We have no idea how far above $0.7765$ the true optimum is. A relaxation of the packing problem under the exact validity region would tell us whether more effort is worthwhile.
 \item \textbf{Automate the rule discovery.} Look at the label distribution, recover the integer target, fit sparse count, distance and directional terms, and accept a fit only if it is exact. This could be written as symbolic regression with exactness as the stopping test, and would apply to any discrete black-box scorer.
 \end{itemize}
+
+\section*{Acknowledgement of AI use}
+We used Claude Code (Anthropic, model Claude Sonnet 5.5, Opus 5.5, Fable 5.2) as a coding and writing assistant throughout this project. It helped write and run code and the write first draft of this report. We chose the directions, made the submission decisions, and uploaded every file ourselves. The final scores quoted here come from the leaderboard or from the exact scoring code in the repository, not from the assistant's own estimates.
 
 \textbf{Code.} The exact rules are in \texttt{src/rules.py}, the annealer in \texttt{src/anneal.cpp}, and the day-by-day log and every submission with its predicted and returned score are in \texttt{UPDATES.md} and \texttt{results/submission\_log.jsonl}.
 
