@@ -2,6 +2,11 @@
 
 Dated log, newest first. Stable conventions live in `CLAUDE.md`.
 
+## 2026-11-13: S21 uploaded and matched; report written
+
+- The user uploaded S21 and reported that it matched: returned 0.7754489796 (= 37997), all 100 valid, as predicted. Logged in `results/submission_log.jsonl`. S22 (38048 = 0.7764897959, `submissions/S22_20261112_233848.npy`) is still the file to upload; the exact rules have matched every upload since S18.
+- Report written: `report/report.tex` / `report.pdf` (5 pages, 5 figures from `report/make_figs.py`, AI-use acknowledgement), plus `report/EXPLAINER.md`. Pushed to `main`. Small jobs (plots, pdflatex) run on `mit_quicktest` (15 min limit).
+
 ## 2026-11-12 23:50: a fixed core plus heat breaks 38000 (38048 after two minutes of scanning); overnight run `cp2-optR5` prepared but NOT started
 
 - **Result.** With the valid code grids kept fixed and the chain started hot (T 1.5–2.0), the annealer goes well past every earlier set: 38015 from a 36M-step cooling chain, 38031–38048 from constant-T chains after only 2–2.5M steps, still climbing when the job ended. All verified with the Python rules. Best before tonight: 37997 (S21).
