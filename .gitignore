@@ -21,3 +21,8 @@ logs/
 
 # Compiled optimiser binaries (rebuild: see the Build line at the top of src/anneal.cpp and src/pt.cpp)
 bin/
+
+# LaTeX build leftovers
+report/*.log
+report/*.aux
+report/*.out
