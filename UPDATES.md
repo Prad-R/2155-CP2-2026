@@ -2,6 +2,11 @@
 
 Dated log, newest first. Stable conventions live in `CLAUDE.md`.
 
+## 2026-11-13 23:07–23:46 (logged 2026-11-16): S23–S28 built from last-hour fixed-core chains
+
+- Hot fixed-core chains on `mit_quicktest` (`explore/quick_s22.sh` … `quick_s27x.sh`), each round started from the previous best: S23 38079 (`q13`), S24 38084 (`q14`), S25 38108 (`s32`), S26 38112 (`t13`), S27 38133 (`v17`), **S28 38135 = 0.7782653061 (`submissions/S28_20261113_234653.npy`, sha 0b68b1a1, chain `w20`, all valid): the best file built.** **S28 was uploaded; the user reported on Nov 16 that it matched the prediction (0.7782653061, 100/100 valid). Final submission.** S23–S27 were not uploaded as far as recorded.
+- S28 analysis (Nov 16): mean pairwise distance 39.51 vs 39.54 maximum for its district counts (Plotkin 39.6 without validity); mean 10-NN distance 38.135 (score 0.7783). Validity costs almost nothing; the gap to ~0.80 is 10-NN mean vs all-pairs mean (pairs at 38: 683, at 39: 2518, at 40: 1043).
+
 ## 2026-11-13: S21 uploaded and matched; report written
 
 - The user uploaded S21 and reported that it matched: returned 0.7754489796 (= 37997), all 100 valid, as predicted. Logged in `results/submission_log.jsonl`. S22 (38048 = 0.7764897959, `submissions/S22_20261112_233848.npy`) is still the file to upload; the exact rules have matched every upload since S18.
